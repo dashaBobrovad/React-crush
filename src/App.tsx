@@ -11,6 +11,8 @@ function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
 
+  // Разнести по файлам нормально
+
   async function fetchData() {
     setLoading(true);
     setError("");
@@ -33,14 +35,20 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="container mx-auto max-w-2xl pt-p">
-        {loading && <div>Loading...</div>}
+        {loading && <div className='text-center'>Loading...</div>}
 
-        {error && <div className='text-red-600 text-center'>error</div>}
+        {error && <div className="text-red-600 text-center">error</div>}
 
-        {products.length >= 1 &&
+        {products.length >= 1 && (
           products.map((product, index) => (
             <Product product={products[index]} key={product.id} />
-          ))}
+          ))
+        )}
+
+        {
+          products.length === 0 && !loading && !error &&  <div>no data </div>
+        }
+
       </div>
     </ErrorBoundary>
   );
