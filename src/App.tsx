@@ -1,54 +1,54 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import CreateProductForm from "./components/CreateProductForm";
+import Error from "./components/Error";
 import ErrorBoundary from "./components/ErrorBoundary";
-
+import Loader from "./components/Loader";
+import Modal from "./components/Modal";
 import Product from "./components/Product";
+import { useProducts } from "./hooks/products";
 import { IProduct } from "./models";
-// import { products } from "./data/products";
+
+// убрать либу и подключить свои стили (изолированно + scss)
+// настроить роутинг
+// сделать простую оплату (qr/lib)
+// накатить редакс
 
 function App() {
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
+  const { loading, error, products, addProduct } = useProducts();
+  const [isModal, setIsModal] = useState<boolean>(true);
 
-  // Разнести по файлам нормально
+  const createProductHandler = (product: IProduct) => {
+    setIsModal(false);
+    addProduct(product);
+  };
 
-  async function fetchData() {
-    setLoading(true);
-    setError("");
-    axios
-      .get("https://fakestoreapi.com/products/")
-      .then((response) => {
-        setLoading(false);
-        setProducts(response.data);
-      })
-      .catch((error) => {
-        setLoading(false);
-        setError(error.message);
-      });
+  const onCloseModal = () =>{
+    setIsModal(false);
   }
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+  const onOpenModal = () => {
+    setIsModal(true)
+  }
   return (
     <ErrorBoundary>
+      <button type="button" className="py-2 px-4 border bg-yellow-400" onClick={onOpenModal}>create product</button>
       <div className="container mx-auto max-w-2xl pt-p">
-        {loading && <div className='text-center'>Loading...</div>}
+        {loading && <Loader />}
 
-        {error && <div className="text-red-600 text-center">error</div>}
+        {error && <Error error={error} />}
 
-        {products.length >= 1 && (
+        {products.length >= 1 &&
           products.map((product, index) => (
             <Product product={products[index]} key={product.id} />
-          ))
+          ))}
+
+        {products.length === 0 && !loading && !error && <div>no data </div>}
+
+        {isModal && (
+          <Modal onClose={onCloseModal}>
+            <CreateProductForm onCreate={createProductHandler} />
+          </Modal>
         )}
-
-        {
-          products.length === 0 && !loading && !error &&  <div>no data </div>
-        }
-
       </div>
     </ErrorBoundary>
   );

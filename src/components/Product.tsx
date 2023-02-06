@@ -5,8 +5,7 @@ interface ProductProps {
   product: IProduct;
 }
 
-const Product = (props: ProductProps) => {
-  const { product } = props;
+const Product = ({product}: ProductProps) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(prev => !prev);
