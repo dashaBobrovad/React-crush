@@ -1,13 +1,10 @@
 import React from "react";
 import {Route, Routes} from 'react-router-dom';
-import AboutPage from "./pages/AboutPage";
-import ProductsPage from "./pages/ProductsPage";
+import {AboutPage, ProductsPage} from "./pages";
 
 // стили react для компонентов 
 // Сверстать симпотные карточки (3 штуки на адптиве в колонку)
 // 
-
-
 
 
 // убрать либу и подключить свои стили (изолированно + scss)

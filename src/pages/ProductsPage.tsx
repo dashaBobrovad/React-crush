@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
-import CreateProductForm from "../components/CreateProductForm";
-import Error from "../components/Error";
-import ErrorBoundary from "../components/ErrorBoundary";
-import Loader from "../components/Loader";
-import Modal from "../components/Modal";
-import Product from "../components/Product";
+import {CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product} from "../components";
 import { useProducts } from "../hooks/products";
 import { IProduct } from "../models";
 
 function ProductsPage() {
     const { loading, error, products, addProduct } = useProducts();
-  const [isModal, setIsModal] = useState<boolean>(true);
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   const createProductHandler = (product: IProduct) => {
     setIsModal(false);
