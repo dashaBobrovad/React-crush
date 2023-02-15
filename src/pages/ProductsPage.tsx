@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import {CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product} from "../components";
+import {CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product, ProductList} from "../components";
 import { useProducts } from "../hooks/products";
-import { IProduct } from "../models";
+import { IProduct } from "../types/IProduct";
 
 function ProductsPage() {
     const { loading, error, products, addProduct } = useProducts();
@@ -27,12 +27,7 @@ function ProductsPage() {
 
         {error && <Error error={error} />}
 
-        {products.length >= 1 &&
-          products.map((product, index) => (
-            <Product product={products[index]} key={product.id} />
-          ))}
-
-        {products.length === 0 && !loading && !error && <div>no data </div>}
+        <ProductList/>
 
         {isModal && (
           <Modal onClose={onCloseModal}>

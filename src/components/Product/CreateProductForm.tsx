@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios, { AxiosError } from "axios";
-import { IProduct } from "../models";
-import {Error} from "../components";
+import { IProduct } from "../../types/IProduct";
+import {Error} from "../index";
 
 interface CreateProductFormProps {
   onCreate: (product: IProduct) => void;

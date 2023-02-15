@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { IProduct } from "../models";
-import { Button } from '../components';
-import s from '../assets/scss/Product.module.scss';
+import { IProduct } from "../../types/IProduct";
+import { Button } from '..';
+import s from '../../assets/scss/Product.module.scss';
 
 interface ProductProps {
   product: IProduct;
@@ -16,14 +16,11 @@ const Product = ({ product }: ProductProps) => {
   return (
     // <div className="border py-2 px-4 rounded flex flex-col items-center mb-2">
     <div className={s.product}>
-      {/* <img src={product.image} className={s.product__image} alt={product.title} /> */}
+      <img src={product.image} className={s.product__image} alt={product.title} />
       <p className={s.product__title}>{product.title}</p>
       <p className={s.product__price}>{product.price}</p>
       {/* <p className={s.product__rate}>{product.rating.rate}</p>
       <p className={s.product__count}>{product.rating.count}</p> */}
-      {/* <button className={`${s.product__button}--${open ? '--active' : '--unactive'}`} onClick={handleOpen}>
-        {open ? 'hide' : 'show'} details
-      </button> */}
 
       <Button 
         className={s.product} 

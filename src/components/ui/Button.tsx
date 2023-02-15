@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import bs from '../assets/scss/Button.module.scss';
+import s from '../../assets/scss/Button.module.scss';
 
 interface ButtonProps {
   onClick?: () => void,
@@ -10,7 +10,7 @@ interface ButtonProps {
 function Button({ onClick, children, className, modifyClass }: ButtonProps) {
   return (
     <button 
-      className={`${className} ${bs.button} ${bs[`button--${modifyClass}`]}`}  
+      className={`${className} ${s.button} ${s[`button--${modifyClass}`]}`}  
       onClick={onClick}>
         {children}
     </button>
