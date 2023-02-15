@@ -9,18 +9,17 @@ interface ButtonProps {
 }
 
 
-function Button({ onClick, children, cl, modifyClass }: ButtonProps) {
+function Button({ onClick, children, cl = '', modifyClass }: ButtonProps) {
   // вынести в хелперы (+ спросить, норм ли это тема вообще)
-  function makeClass(cl: string = '', modifyClass: string[] =  []) {
-    let result = [];
-    cl && result.push(cl);
-    modifyClass && modifyClass?.map((cl: string) => result.push(s[`button--${cl}`]));
-    return result.join(' ');
+  function makeClass(modifyClass: string[] =  []) {
+    return modifyClass && (modifyClass?.map((cl: string) => 
+      [s[`button--${cl}`]]
+    ).join(' '));
   }
 
   return (
     <button
-      className={`${cl} ${s.button} ${makeClass(cl, modifyClass)}`}
+      className={`${cl} ${s.button} ${makeClass(modifyClass)}`}
       onClick={onClick}>
       {children}
     </button>

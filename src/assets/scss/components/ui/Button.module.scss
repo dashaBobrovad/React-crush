@@ -1,8 +1,9 @@
 @import '../../base/vars/';
 
 .button{
+  color: $grey;
   &--shadow{
-    box-shadow: $boxShadow;
+    box-shadow: $boxShadow; // doesnt work !
     border: 3px solid yellow;
   }
 
