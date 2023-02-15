@@ -2,10 +2,10 @@ import React from "react";
 import {Route, Routes} from 'react-router-dom';
 import {AboutPage, ProductsPage} from "./pages";
 
-// стили react для компонентов 
+// + стили react для компонентов 
+// + fx imports
 // Сверстать симпотные карточки (3 штуки на адптиве в колонку)
 // 
-
 
 // убрать либу и подключить свои стили (изолированно + scss)
 // настроить роутинг

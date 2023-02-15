@@ -1,0 +1,11 @@
+.button{
+
+  color: gray;
+  &--active{
+    background-color: green;
+  }
+
+  &--unactive{
+   background-color: red; 
+  }
+}
