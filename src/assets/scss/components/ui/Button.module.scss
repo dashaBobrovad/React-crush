@@ -1,9 +1,6 @@
 @import '../../base/vars/';
 
 .button{
-
-  color: gray;
-
   &--shadow{
     box-shadow: $boxShadow;
     border: 3px solid yellow;

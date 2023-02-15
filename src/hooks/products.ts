@@ -14,7 +14,7 @@ export function useProducts() {
     setLoading(true);
     setError("");
     axios
-      .get("https://fakestoreapi.com/products/")
+      .get("https://fakestoreapi.com/products/?limit=5")
       .then((response) => {
         setLoading(false);
         setProducts(response.data);

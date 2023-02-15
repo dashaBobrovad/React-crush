@@ -3,7 +3,7 @@
 .container{
   background-color: aquamarine;
   margin: 0 auto;
-  padding: 0 $padding-m;
+  padding: $padding-m;
 }
 
 @media (max-width: $media-mobile){

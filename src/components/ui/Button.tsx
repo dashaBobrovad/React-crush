@@ -11,11 +11,10 @@ interface ButtonProps {
 
 function Button({ onClick, children, cl, modifyClass }: ButtonProps) {
   // вынести в хелперы (+ спросить, норм ли это тема вообще)
-  function makeClass(cl: string | undefined, modifyClass: string[] | undefined) {
+  function makeClass(cl: string = '', modifyClass: string[] =  []) {
     let result = [];
     cl && result.push(cl);
-    result.push(s.button);
-    modifyClass?.map((cl: string) => result.push(s[`button--${cl}`]));
+    modifyClass && modifyClass?.map((cl: string) => result.push(s[`button--${cl}`]));
     return result.join(' ');
   }
 
