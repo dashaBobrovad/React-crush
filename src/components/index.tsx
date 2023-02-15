@@ -6,5 +6,6 @@ import Loader from "./ui/Loader";
 import Modal from "./ui/Modal";
 import Product from "./Product/Product";
 import ProductList from "./Product/ProductList";
+import Icon from "./ui/Icon";
 
-export {CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product, ProductList, Button}
+export {Icon, CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product, ProductList, Button}

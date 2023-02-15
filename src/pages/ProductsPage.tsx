@@ -22,12 +22,12 @@ function ProductsPage() {
   return (
     <ErrorBoundary>
       <button type="button" className="py-2 px-4 border bg-yellow-400" onClick={onOpenModal}>create product</button>
-      <div className="container mx-auto max-w-2xl pt-p">
+      <div>
         {loading && <Loader />}
 
         {error && <Error error={error} />}
 
-        <ProductList/>
+        {!loading && <ProductList />}
 
         {isModal && (
           <Modal onClose={onCloseModal}>

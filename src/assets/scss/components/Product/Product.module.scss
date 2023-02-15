@@ -1,21 +1,61 @@
+@import '../../base/vars';
+
 .product {
-  border: 1px solid palevioletred;
+  border-radius: $radius-m;
+  background-color: $white;
+  padding: $padding-m;
+
 
   &__image {
-    width: 10px;
-    height: 10px;
+    width: auto;
+    height: 200px;
+    margin: 0 auto;
+    margin-bottom: $margin-m;
   }
 
   &__title {
     font-weight: bold;
+    margin-bottom: $paragraphMb-m;
   }
 
   &__price {
     font-style: italic;
+    margin-bottom: $paragraphMb-s;
   }
 
-  &__button {
-    background-attachment: blue;
+  &__category{
+    font-weight: bold;
+    margin-bottom: $paragraphMb-l;
   }
 
+  &__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $grey-light;
+    margin-left: -$padding-m;
+    margin-right: -$padding-m;
+    padding: 0 $padding-m;
+    margin-bottom: $paragraphMb-l;
+  }
+
+  &__rate{
+
+  }
+
+  &__count{
+    &Text{
+      color: $grey;
+    }
+
+  }
+  
+
+}
+
+
+@media (max-width: $media-mobile){
+  .product{
+
+  }
 }

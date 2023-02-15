@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { IProduct } from "../../types/IProduct";
-import { Button } from '..';
+import { Button, Icon } from '../../components';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import s from '../../assets/scss/components/Product/Product.module.scss';
+
+
 
 interface ProductProps {
   product: IProduct;
@@ -17,14 +20,22 @@ const Product = ({ product }: ProductProps) => {
     // <div className="border py-2 px-4 rounded flex flex-col items-center mb-2">
     <div className={s.product}>
       <img src={product.image} className={s.product__image} alt={product.title} />
-      <p className={s.product__title}>{product.title}</p>
-      <p className={s.product__price}>{product.price}</p>
-      {/* <p className={s.product__rate}>{product.rating.rate}</p>
-      <p className={s.product__count}>{product.rating.count}</p> */}
+      <h2 className={s.product__title}>{product.title}</h2>
+      <p className={s.product__price}>{(product.price).toFixed(2)} $</p>
+      <p className={s.product__category}>{product.category}</p>
 
-      <Button 
-        className={s.product} 
-        modifyClass={open ? 'active' : 'unactive'}
+      <div className={s.product__info}>
+        <p className={s.product__rate}>{(product.rating.rate).toFixed(1)}  <Icon icon={faStar}/></p>
+        <p className={s.product__count}>
+          <span>{product.rating.count}</span>{' '}
+          <span className={s.product__count}>pieces</span>
+        </p>
+      </div>
+
+      <Button
+        // className={s.product__button}
+        
+        modifyClass={[open ? 'active' : 'unactive', 'shadow']}
         onClick={handleOpen}>{open ? 'hide' : 'show'}details
       </Button>
 
