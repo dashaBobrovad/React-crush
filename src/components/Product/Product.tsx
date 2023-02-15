@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IProduct } from "../../types/IProduct";
 import { Button } from '..';
-import s from '../../assets/scss/Product/Product.module.scss';
+import s from '../../assets/scss/components/Product/Product.module.scss';
 
 interface ProductProps {
   product: IProduct;

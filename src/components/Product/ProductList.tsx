@@ -1,6 +1,6 @@
 import { Product } from "../../components";
 import { useProducts } from "../../hooks/products";
-import s from '../../assets/scss/Product/ProductList.module.scss';
+import s from '../../assets/scss/components/Product/ProductList.module.scss';
 
 const ProductList = () => {
   const { loading, error, products } = useProducts();
