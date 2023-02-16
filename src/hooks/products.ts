@@ -8,13 +8,14 @@ export function useProducts() {
   const [error, setError] = useState<string>("");
 
   function addProduct (product: IProduct){
-    setProducts((prev) => [product, ...prev])
+    setProducts(prev => [product, ...prev]);
   }
+  
   async function fetchData() {
     setLoading(true);
     setError("");
     axios
-      .get("https://fakestoreapi.com/products/?limit=5")
+      .get("https://fakestoreapi.com/products")
       .then((response) => {
         setLoading(false);
         setProducts(response.data);

@@ -4,7 +4,7 @@ import { useProducts } from "../hooks/products";
 import { IProduct } from "../types/IProduct";
 
 function ProductsPage() {
-    const { loading, error, products, addProduct } = useProducts();
+  const { loading, error, products, addProduct } = useProducts();
   const [isModal, setIsModal] = useState<boolean>(false);
 
   const createProductHandler = (product: IProduct) => {
@@ -22,12 +22,12 @@ function ProductsPage() {
   return (
     <ErrorBoundary>
       <button type="button" className="py-2 px-4 border bg-yellow-400" onClick={onOpenModal}>create product</button>
-      <div>
+      <div className='block'>
         {loading && <Loader />}
 
         {error && <Error error={error} />}
 
-        {!loading && <ProductList />}
+        {!loading && <ProductList products={products}/>}
 
         {isModal && (
           <Modal onClose={onCloseModal}>

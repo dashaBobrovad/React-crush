@@ -9,7 +9,7 @@ interface CreateProductFormProps {
 
 const testProduct: IProduct = {
   id: 99999999,
-  title: "",
+  title: "test",
   price: 22.3,
   description:
     "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
@@ -38,13 +38,12 @@ function CreateProductForm({ onCreate }: CreateProductFormProps) {
     testProduct.title = value;
 
     await axios
-      .post<IProduct>("https://fakestoreapi.com/carts", testProduct)
+      .post<IProduct>("https://fakestoreapi.com/products", testProduct)
       .then((response) => {
         onCreate(testProduct);
       })
       .catch((e: unknown) => {
         const error = e as AxiosError;
-        console.log(error);
       });
   };
 

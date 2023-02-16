@@ -11,11 +11,6 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
-  const [open, setOpen] = useState(false);
-  // const handleOpen = () => {
-  //   setOpen(prev => !prev);
-  // };
-
   return (
     // <div className="border py-2 px-4 rounded flex flex-col items-center mb-2">
     <div className={s.product}>
@@ -32,16 +27,9 @@ const Product = ({ product }: ProductProps) => {
         </p>
       </div>
 
-      <Button
-        // className={s.product__button}
-        // className={`${open ? 'button--active' : 'button--unactive'} button--shadow`}
-        // onClick={handleOpen}
-        className="button--gradient"
-      >
-        go to product  
-      </Button>
+      <Button className="button--gradient">go to product</Button>
 
-      {open && <p className="italic pt-3">{product.description}</p>}
+   
     </div>
   );
 };
