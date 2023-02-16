@@ -6,7 +6,7 @@ const ProductList = () => {
   const { loading, error, products } = useProducts();
 
   return (
-    <div className={s.productList}>
+    <div className={`${s.productList} block`}>
       {products.length >= 1 &&
         products.map((product, index) => (
           <Product product={products[index]} key={product.id} />

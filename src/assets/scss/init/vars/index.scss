@@ -3,11 +3,13 @@ $media-mobile: 768px;
 
 // radius
 $radius-m: 8px;
+$radius-xl: 30px;
 
 // gap
 $gap-m: 20px;
 
 // padding
+$padding-s: 10px;
 $padding-m: 20px;
 
 // margin
@@ -31,8 +33,9 @@ $boxShadow: 30px 5px 30px -30px rgb(61 61 61 / 12%);
 // color
 $black: #000000;
 $white: #ffff;
-$blue: #00627b;
+$blue: #006d7b;
+$blue-light: #4ed9ff;
 $blue-dark: #003030;
 $grey: #787878;
-$grey-light: #f8efed;
+$grey-light: #eff4f7;
 

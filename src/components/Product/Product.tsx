@@ -12,15 +12,15 @@ interface ProductProps {
 
 const Product = ({ product }: ProductProps) => {
   const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(prev => !prev);
-  };
+  // const handleOpen = () => {
+  //   setOpen(prev => !prev);
+  // };
 
   return (
     // <div className="border py-2 px-4 rounded flex flex-col items-center mb-2">
     <div className={s.product}>
       <img src={product.image} className={s.product__image} alt={product.title} />
-      <h2 className={s.product__title}>{product.title}</h2>
+      <h2 className={`${s.product__title} ellipsis-2`}>{product.title}</h2>
       <p className={s.product__price}>{(product.price).toFixed(2)} $</p>
       <p className={s.product__category}>{product.category}</p>
 
@@ -34,8 +34,11 @@ const Product = ({ product }: ProductProps) => {
 
       <Button
         // className={s.product__button}
-        className={`${open ? 'button--active' : 'button--unactive'} button--shadow`}
-        onClick={handleOpen}>{open ? 'hide' : 'show'}details
+        // className={`${open ? 'button--active' : 'button--unactive'} button--shadow`}
+        // onClick={handleOpen}
+        className="button--gradient"
+      >
+        go to product  
       </Button>
 
       {open && <p className="italic pt-3">{product.description}</p>}

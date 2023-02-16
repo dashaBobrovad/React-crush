@@ -1,7 +1,6 @@
-@import './vars';
+@import '../vars/';
 
 .container{
-  background-color: aquamarine;
   margin: 0 auto;
   padding: $padding-m;
 }
