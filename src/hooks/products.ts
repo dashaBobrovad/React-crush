@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import { IProduct } from "../types/IProduct";
 
+// сделать добавление в корзину (похоже)
 export function useProducts() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
