@@ -1,4 +1,4 @@
-@import './assets/scss/base/vars';
+@import '../src/assets/scss/base.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,900;1,400;1,900&display=swap');
 body {
@@ -6,6 +6,3 @@ body {
   line-height: 1.3em;
   font-size: $fontSize-m
 }
-
-@import './assets/scss/base/normalize.scss';
-@import './assets/scss/base/container.scss';

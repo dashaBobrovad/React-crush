@@ -1,25 +1,17 @@
 import React, { ReactNode } from 'react';
-import s from '../../assets/scss/components/ui/Button.module.scss';
 
 interface ButtonProps {
   onClick?: () => void,
   children?: ReactNode,
-  cl?: string,
-  modifyClass?: string[];
+  className?: string,
 }
 
 
-function Button({ onClick, children, cl = '', modifyClass }: ButtonProps) {
-  // вынести в хелперы (+ спросить, норм ли это тема вообще)
-  function makeClass(modifyClass: string[] =  []) {
-    return modifyClass && (modifyClass?.map((cl: string) => 
-      [s[`button--${cl}`]]
-    ).join(' '));
-  }
-
+function Button({ onClick, children, className = '' }: ButtonProps) {
+  // вынести button в глобальные стили 
   return (
     <button
-      className={`${cl} ${s.button} ${makeClass(modifyClass)}`}
+      className={`button ${className}`}
       onClick={onClick}>
       {children}
     </button>

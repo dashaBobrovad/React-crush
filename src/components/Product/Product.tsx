@@ -34,8 +34,7 @@ const Product = ({ product }: ProductProps) => {
 
       <Button
         // className={s.product__button}
-        
-        modifyClass={[open ? 'active' : 'unactive', 'shadow']}
+        className={`${open ? 'button--active' : 'button--unactive'} button--shadow`}
         onClick={handleOpen}>{open ? 'hide' : 'show'}details
       </Button>
 
