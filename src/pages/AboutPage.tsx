@@ -1,16 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../app/store";
-import { decrement, increment } from "../features/counter/counterSlice.js";
+// import { decrement, increment } from "../features/counter/counterSlice.js";
 
 function AboutPage() {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
+const count = useSelector((state: any) => state.test.value);
+const dispatch = useDispatch();
 
   return (
     <div>
       About page
-      <div>
+      <button onClick={()=>dispatch({type: 'TEST', payload: 10})}>click me!</button>
+      {/* <div>
         <button
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
@@ -24,7 +24,7 @@ function AboutPage() {
         >
           Decrement
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
