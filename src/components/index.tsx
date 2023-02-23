@@ -1,11 +1,21 @@
-import CreateProductForm from "./Product/CreateProductForm";
+import ErrorBoundary from "./ErrorBoundary";
+
+// ui
 import Error from "./ui/Error";
 import Button from "./ui/Button"
-import ErrorBoundary from "./ErrorBoundary";
 import Loader from "./ui/Loader";
 import Modal from "./ui/Modal";
+import Icon from "./ui/Icon";
+import Navigation from "./ui/Navigation";
+
+// Product
+import CreateProductForm from "./Product/CreateProductForm";
 import Product from "./Product/Product";
 import ProductList from "./Product/ProductList";
-import Icon from "./ui/Icon";
 
-export {Icon, CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product, ProductList, Button}
+export {
+    ErrorBoundary,
+    // ui
+    Error, Button, Loader, Modal, Icon, Navigation,
+    // Product
+    CreateProductForm, Product, ProductList}

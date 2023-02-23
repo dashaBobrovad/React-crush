@@ -1,0 +1,16 @@
+@import '../../init/vars';
+
+.navigation{
+    display: flex;
+
+    &__item{
+        color: $white;
+        &:not(:last-child){
+            margin-right: 10px;
+        }
+
+        &--active{
+            color: $blue-light;
+        }
+    }
+}

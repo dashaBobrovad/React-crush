@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
+import {Navigation} from "./components";
 import { AboutPage, ProductsPage } from "./pages";
 
 // + стили react для компонентов 
@@ -22,11 +23,12 @@ import { AboutPage, ProductsPage } from "./pages";
 // page speed
 // сделать страницу, на ней переключалка (в виде таблици и в виде карточек), внутрь каждого можно проваливаться
 // можно еще захуярить смену тем (тепно-зеленая и розовая, например)
+// 404
 
 function App() {
   return (
     <React.Fragment>
-      <div>header</div>
+      <div>header<Navigation /></div>
       <div className="container">
       <Routes>
         <Route path="/" element={<ProductsPage />} />

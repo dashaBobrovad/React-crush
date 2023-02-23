@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { IProduct } from "../../types/IProduct";
 import { Button, Icon } from '../../components';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import s from '../../assets/scss/components/Product/Product.module.scss';
-
-
 
 interface ProductProps {
   product: IProduct;
