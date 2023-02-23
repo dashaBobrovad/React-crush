@@ -1,4 +1,4 @@
-import AboutPage from "./AboutPage";
+import TestPage from "./TestPage";
 import ProductsPage from "./ProductsPage";
 
-export {AboutPage, ProductsPage}
+export {TestPage, ProductsPage}

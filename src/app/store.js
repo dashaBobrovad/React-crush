@@ -1,8 +1,9 @@
 import { createStore, combineReducers } from 'redux';
 import testReducer from './reducers/testReducer';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({test: testReducer})
 
-const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(rootReducer, composeWithDevTools());
 
 export default store;

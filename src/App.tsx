@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
 import {Navigation} from "./components";
-import { AboutPage, ProductsPage } from "./pages";
+import { TestPage, ProductsPage } from "./pages";
 
 // + стили react для компонентов 
 // + fx imports
@@ -11,8 +11,10 @@ import { AboutPage, ProductsPage } from "./pages";
   // типизация Redux
   // переписываем данные на Redux (не все, а которые нужны глобально - иначе контекст)
   // переписать на тулкит (или сделать 2 варианта в отдельных ветках)
-  
 
+// вынести роутинг отдельно 
+
+// настройка вебпака
 
 // рейтинг в отдельный компонент и разные цвета
 // воткнуть перевод 
@@ -40,7 +42,7 @@ function App() {
       <div className="container">
       <Routes>
         <Route path="/" element={<ProductsPage />} />
-        <Route path="/about" element={<AboutPage />} />
+        <Route path="/test" element={<TestPage />} />
       </Routes>
       </div>
       <div>footer</div>

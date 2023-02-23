@@ -1,0 +1,58 @@
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { TEST, ADD_DATA_ARR, ADD_DATA_ITEM, testAction, addDataArrAction, addDataItemAction } from "../app/reducers/testReducer";
+// import { decrement, increment } from "../features/counter/counterSlice.js";
+
+function TestPage() {
+  const value = useSelector((state: any) => state.test.value);
+  const dataArr = useSelector((state: any) => state.test.dataArr);
+  const dataWithObjs = useSelector((state: any) => state.test.dataWithObjs);
+
+interface IObj{
+  id: number,
+  name: string,
+}
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      TestPage page
+
+      <button
+        onClick={() => {
+          dispatch(testAction(Number(prompt())));
+        }}
+      >
+        test action
+      </button>
+      <div>value: {value}</div>
+
+
+
+      <button
+        onClick={() => {
+          dispatch(addDataArrAction([1,2,3]));
+        }}
+      >
+        get dataArr action
+      </button>
+      <div>dataArr: {dataArr.map((item: any) => <div>{item}</div>)}</div>
+   
+
+
+      <button
+        onClick={() => {
+          dispatch(addDataItemAction(prompt()))
+        }}
+      >
+      Eminem moment
+      </button>
+      <div>data: {dataWithObjs.map((item: IObj) => <div>{item.id} persin said: "My name is {item.name}"</div>)}</div>
+   
+
+
+    </div>
+  );
+}
+
+export default TestPage;

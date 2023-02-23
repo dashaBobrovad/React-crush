@@ -6,7 +6,7 @@ function Navigation() {
   return (
     <nav className={s.navigation}>
       <NavLink to="/" className={({ isActive }) => (isActive ? `${s.navigation__item} ${s['navigation__item--active']}` : s.navigation__item)}>Main</NavLink>
-      <NavLink to="/about" className={({ isActive }) => (isActive ? `${s.navigation__item} ${s['navigation__item--active']}` : s.navigation__item)}>About</NavLink>
+      <NavLink to="/test" className={({ isActive }) => (isActive ? `${s.navigation__item} ${s['navigation__item--active']}` : s.navigation__item)}>Test Page (polygon)</NavLink>
     </nav>
   );
 }
