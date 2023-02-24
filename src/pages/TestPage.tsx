@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { TEST, ADD_DATA_ARR, ADD_DATA_ITEM, testAction, addDataArrAction, addDataItemAction } from "../app/reducers/testReducer";
+import { fetchProducts } from "../asyncActions/products";
+import { testAction, addDataArrAction, addDataItemAction } from "../app/reducers/testReducer";
 // import { decrement, increment } from "../features/counter/counterSlice.js";
 
 function TestPage() {
@@ -12,6 +13,9 @@ interface IObj{
   id: number,
   name: string,
 }
+
+
+// export const useAppDispatch: () => Dispatcher = useDispatch as any;
   const dispatch = useDispatch();
 
   return (
@@ -49,6 +53,9 @@ interface IObj{
       </button>
       <div>data: {dataWithObjs.map((item: IObj) => <div>{item.id} persin said: "My name is {item.name}"</div>)}</div>
    
+
+
+   <button onClick={()=> {dispatch(fetchProducts()); console.log('fetchProducts')}}>get products</button>
 
 
     </div>

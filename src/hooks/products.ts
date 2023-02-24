@@ -30,7 +30,14 @@ export function useProducts() {
 
   useEffect(() => {
     fetchData();
+
+    
+
+
   }, []);
+
+
+
 
   return { loading, error, products, addProduct };
 }
