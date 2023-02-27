@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { getProductsAction } from "../app/reducers/productsReducer";
+import { getProductsAction } from "../reducers/productsReducer";
 import {Dispatch} from 'redux';
 
 
@@ -11,7 +11,6 @@ export const fetchProducts: fetchProductsType = () => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
-        console.log(response.data)
         dispatch(getProductsAction(response.data));
       })
       .catch((e: unknown) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product, ProductList} from "../components";
-import { useProducts } from "../hooks/products";
+import { useProducts } from "../data/hooks/products";
 import { IProduct } from "../types/IProduct";
 
 function ProductsPage() {

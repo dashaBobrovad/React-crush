@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../asyncActions/products";
-import { testAction, addDataArrAction, addDataItemAction } from "../app/reducers/testReducer";
+import { fetchProducts } from "../data/asyncActions/products";
+import { testAction, addDataArrAction, addDataItemAction } from "../data/reducers/testReducer";
 // import { decrement, increment } from "../features/counter/counterSlice.js";
 
 function TestPage() {
@@ -55,7 +55,7 @@ interface IObj{
    
 
 
-   <button onClick={()=> {dispatch(fetchProducts()); console.log('fetchProducts')}}>get products</button>
+   <button onClick={()=> dispatch(fetchProducts())}>get products</button>
 
 
     </div>
