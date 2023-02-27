@@ -17,7 +17,7 @@ const productsReducer = (state = initialState, action: productsAction) => {
         case GET_PRODUCTS:
             return {
                 ...state,
-                products: [...state.products, action.payload]
+                products: [...action.payload]
             }
     
         default:

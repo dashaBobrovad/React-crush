@@ -55,7 +55,7 @@ interface IObj{
    
 
 
-   <button onClick={()=> dispatch(fetchProducts())}>get products</button>
+   {/* <button onClick={()=> dispatch(fetchProducts())}>get products</button> */}
 
 
     </div>
