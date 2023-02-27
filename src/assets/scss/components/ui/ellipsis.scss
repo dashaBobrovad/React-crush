@@ -1,0 +1,21 @@
+[class*="ellipsis-"]{
+	-webkit-line-clamp: var(--clamp);
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.ellipsis
+{
+	&-1 {
+		--clamp:1;
+	}
+
+	&-2 {
+		--clamp: 2;
+	}
+	
+	&-3 {
+		--clamp:3;
+	}
+}

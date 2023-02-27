@@ -1,0 +1,10 @@
+@import '../vars/';
+
+.block{
+  background-color: $grey-light;
+  border-radius: $radius-m;
+  padding: $padding-m;
+  &:not(:last-child){
+    margin-bottom: $margin-m;
+  }
+}

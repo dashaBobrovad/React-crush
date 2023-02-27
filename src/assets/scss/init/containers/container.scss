@@ -1,0 +1,14 @@
+@import '../vars/';
+
+// сейчас неправильно работает из-за tailwig
+.container{
+  margin: 0 auto;
+  padding: $padding-m;
+  max-width: 1024px;
+}
+
+@media (max-width: $media-mobile){
+  .container{
+    width: 100%;
+  }
+}
