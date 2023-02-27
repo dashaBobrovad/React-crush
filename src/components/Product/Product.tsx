@@ -1,6 +1,6 @@
 import React from "react";
 import { IProduct } from "../../types/IProduct";
-import { Button, Icon, Image } from '../../components';
+import { Button, Icon, Picture } from '../../components';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import s from '../../assets/scss/components/Product/Product.module.scss';
 
@@ -16,7 +16,7 @@ const Product = ({ product }: ProductProps) => {
     <div className={s.product}>
       {/* <img src={product.image} className={s.product__image} alt={product.title} /> */}
 
-      <Image 
+      <Picture 
        src={product.image}
        width={100}
        height={100}

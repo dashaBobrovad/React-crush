@@ -11,9 +11,7 @@ function ProductsPage() {
 
   React.useEffect(() => {
     dispatch(fetchProducts());
-    console.log(reduxProducts);
   }, []);
-  // сейчас берем продукты из редакса - -не запрашиваем данные каждый раз; допистаь логику, чтобы лоадинги правильно работали - поместить в хук
 
   return (
     <ErrorBoundary>

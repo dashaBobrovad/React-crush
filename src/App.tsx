@@ -18,13 +18,20 @@ import { TestPage, ProductsPage } from "./pages";
 // TS
   // избавиться от any везде
 
+// REFACTOR
+  // добавить прелоадер к картинке, чтобы не было видно серый фон после окончательной загрузки 
+  // вынести роутинг отдельно 
+  // lazy loading на всю карточку, чтобы повысить LCP
+
+// ПРИКОЛЫ
+  // lazy loading красивый (анимация градиента) + aspect ratio
+  // пагинация на главной (ускорит загрузку данных) - по обсерверу/пагинация по страницам 
+  // добавить сост-я, если данных нет, сост-е и loading (продукты на главной)
+  // header + burger on mobile
+  // заебашить свайпер в в карточках
 
 
-
-// header + burger on mobile
-
-// вынести роутинг отдельно 
-
+// --------------------------------------- dirty --------------------------------------------------
 // возможность ставить рейтинг + пересчитываем только на той карточке, где поменяли
 // воткнуть перевод i18n
 // замутить перевод (русский и английский)
@@ -57,8 +64,10 @@ function App() {
       <ErrorBoundary>
       <div>header<Navigation /></div>
       <div className="container">
-        <div style={{height:600, background: 'red'}}>test</div>
+        
+        <div style={{height:600, background: 'grey'}}>prety head will be here</div>
         {/* вместо этого придумать красивую шапку 0 для lcp */}
+
       <Routes>
         <Route path="/" element={<ProductsPage />} />
         <Route path="/test" element={<TestPage />} />

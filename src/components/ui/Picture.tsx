@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useIntersection } from '../../data/hooks/useIntersection';
 
-interface IImage {
+interface IPicture {
   src: string,
   width: number,
   height: number,
 }
 
-function Image({ src, width, height }: IImage) {
+function Picture({ src, width, height }: IPicture) {
 
   // перенести в хук
   const [isInView, setIsInView] = useState(false);
@@ -63,7 +63,7 @@ function Image({ src, width, height }: IImage) {
 
   return (
     <div
-      className="image-container"
+      className="picture"
       ref={imgRef}
       style={{
         paddingBottom: `${(height / width) * 100}%`,
@@ -71,16 +71,13 @@ function Image({ src, width, height }: IImage) {
       }}
     >
       {isInView && (
-
         <img
-        
-          className='image'
+          className='picture_image'
           src={src}
         />
-
       )}
     </div>
   );
 }
 
-export default Image;
+export default Picture;
