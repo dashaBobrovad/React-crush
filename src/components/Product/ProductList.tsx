@@ -1,3 +1,4 @@
+import React from "react";
 import { Error, Product } from "../../components";
 import { useProducts } from "../../data/hooks/products";
 import s from '../../assets/scss/components/Product/ProductList.module.scss';
@@ -22,4 +23,4 @@ const ProductList = ({ products }: ProductProps) => {
   );
 };
 
-export default ProductList;
+export default React.memo(ProductList);
