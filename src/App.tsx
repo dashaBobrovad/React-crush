@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import {Navigation} from "./components";
+import {ErrorBoundary, Navigation} from "./components";
 import { TestPage, ProductsPage } from "./pages";
 
 
-// ОПТИМИЗАЦИЯ
+// ОПТИМИЗАЦИЯ (держим 80+ lighthouse)
   // lazy load img
   // lazy import libs
   // suspense
@@ -15,13 +15,18 @@ import { TestPage, ProductsPage } from "./pages";
   // переписываем данные на Redux (не все, а которые нужны глобально - иначе контекст)
   // переписать на тулкит (или сделать 2 варианта в отдельных ветках)
 
+// TS
+  // избавиться от any везде
+
+
+
 
 // header + burger on mobile
 
 // вынести роутинг отдельно 
 
-// рейтинг в отдельный компонент и разные цвета
-// воткнуть перевод 
+// возможность ставить рейтинг + пересчитываем только на той карточке, где поменяли
+// воткнуть перевод i18n
 // замутить перевод (русский и английский)
 // Редакс (пока что только запрос всех товаров) + почитать про санки и если нужно подключить тоже 
 // добавить возможность оценивать товар (+ дальше если купили, уменьшать кол-во)
@@ -49,14 +54,18 @@ import { TestPage, ProductsPage } from "./pages";
 function App() {
   return (
     <React.Fragment>
+      <ErrorBoundary>
       <div>header<Navigation /></div>
       <div className="container">
+        <div style={{height:600, background: 'red'}}>test</div>
+        {/* вместо этого придумать красивую шапку 0 для lcp */}
       <Routes>
         <Route path="/" element={<ProductsPage />} />
         <Route path="/test" element={<TestPage />} />
       </Routes>
       </div>
       <div>footer</div>
+      </ErrorBoundary>
     </React.Fragment>
   );
 }
