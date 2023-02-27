@@ -10,7 +10,6 @@ import Navigation from "./ui/Navigation";
 import Image from "./ui/Image";
 
 // Product
-import CreateProductForm from "./Product/CreateProductForm";
 import Product from "./Product/Product";
 import ProductList from "./Product/ProductList";
 
@@ -19,4 +18,4 @@ export {
     // ui
     Error, Button, Loader, Modal, Icon, Navigation, Image,
     // Product
-    CreateProductForm, Product, ProductList}
+    Product, ProductList}
