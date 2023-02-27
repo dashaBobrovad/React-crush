@@ -3,9 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import {Navigation} from "./components";
 import { TestPage, ProductsPage } from "./pages";
 
-// + стили react для компонентов 
-// + fx imports
-// + Сверстать симпотные карточки (3 штуки на адптиве в колонку)
+
+// ОПТИМИЗАЦИЯ
+  // lazy load img
+  // lazy import libs
+  // suspense
+  // кэширование (memo) + список товаров в локальное хранилище 
 
 // REDUX
   // типизация Redux
@@ -13,10 +16,7 @@ import { TestPage, ProductsPage } from "./pages";
   // переписать на тулкит (или сделать 2 варианта в отдельных ветках)
 
 
-// ОПТИМИЗАЦИЯ
-  // динамический импорт
-  // кэширование
-
+// header + burger on mobile
 
 // вынести роутинг отдельно 
 
@@ -40,6 +40,11 @@ import { TestPage, ProductsPage } from "./pages";
 // 404
 
 // настройка вебпака
+
+// сделать типа анлог новостей с бесконечной прокруткой (тырить со стороннего апи)
+// можно еще добавить эмоджи-реакции с поппером (раз уж есть) - либо сделать отдельный пэт с этим (мб на чистом js)
+
+
 
 function App() {
   return (
