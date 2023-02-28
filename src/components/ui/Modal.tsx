@@ -1,10 +1,10 @@
 import React from "react";
 
-interface ModalProps {
+interface IModalProps {
   children?: React.ReactNode;
   onClose: () => void;
 }
-function Modal({ children, onClose }: ModalProps) {
+function Modal({ children, onClose }: IModalProps) {
   return (
     <React.Fragment>
       <div className="fixed bg-black/50 top-0 right-0 left-0 bottom-0" onClick={onClose}/>
