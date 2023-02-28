@@ -1,13 +1,11 @@
 import axios, { AxiosError } from "axios";
 import { getProductsAction } from "../reducers/productsReducer";
-import {Dispatch} from 'redux';
+import { Dispatch } from 'redux';
+import { ProductsAction } from "../../types/productsReducer";
 
 
-// type tfetchProductsType = () => (dispatch: Dispatch) => void;
-type fetchProductsType = () => any; // TODO: rewrite without any
-
-export const fetchProducts: fetchProductsType = () => {
-  return function (dispatch: Dispatch) {
+export const fetchProducts = () => {
+  return async (dispatch: Dispatch<ProductsAction>) => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((response) => {
@@ -19,20 +17,3 @@ export const fetchProducts: fetchProductsType = () => {
       });
   };
 };
-
-
-
-// export const fetchProducts  = (): ThunkAction<Promise<void>, {}, {}, AnyAction> => {
-//   return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
-//     axios
-//       .get("https://fakestoreapi.com/products")
-//       .then((response) => {
-//         console.log(response.data);
-//         dispatch(getProductsAction(response.data));
-//       })
-//       .catch((e: unknown) => {
-//         const error = e as AxiosError;
-//         console.log(error);
-//       });
-//   };
-// };

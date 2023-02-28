@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, {useEffect} from 'react';
 import { ErrorBoundary, ProductList } from "../components";
-import { IProduct } from "../types/IProduct";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { fetchProducts } from "../data/asyncActions/products";
+import { useTypedDispatch } from '../data/hooks/useTypedDispatch';
+import { useTypedSelector } from '../data/hooks/useTypedSelector';
 
 function ProductsPage() {
 
-  const dispatch = useDispatch();
-  const reduxProducts = useSelector((state: any) => state.products.products);
+  const dispatch = useTypedDispatch();
+  const reduxProducts = useTypedSelector(state => state.products.products);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
