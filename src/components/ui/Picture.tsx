@@ -34,7 +34,8 @@ function Picture({ src, width, height }: IPicture) {
       {
         !isLoaded && <Preloader />
       }
-      {isInView && isLoaded && (
+      
+      {isInView && (
         <img
           className='picture_image'
           src={src}
