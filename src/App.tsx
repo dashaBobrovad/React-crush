@@ -1,34 +1,34 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import {ErrorBoundary, Navigation} from "./components";
+import { ErrorBoundary, Navigation, Preview } from "./components";
 import { TestPage, ProductsPage } from "./pages";
 
 
 // ОПТИМИЗАЦИЯ (держим 80+ lighthouse)
-  // lazy load img
-  // lazy import libs
-  // suspense
-  // кэширование (memo) + список товаров в локальное хранилище 
+// lazy load img
+// lazy import libs
+// suspense
+// кэширование (memo) + список товаров в локальное хранилище 
 
 // REDUX
-  // типизация Redux
-  // переписываем данные на Redux (не все, а которые нужны глобально - иначе контекст)
-  // переписать на тулкит (или сделать 2 варианта в отдельных ветках)
+// типизация Redux
+// переписываем данные на Redux (не все, а которые нужны глобально - иначе контекст)
+// переписать на тулкит (или сделать 2 варианта в отдельных ветках)
 
 // TS
-  // избавиться от any везде
+// избавиться от any везде
 
 // REFACTOR
-  // добавить прелоадер к картинке, чтобы не было видно серый фон после окончательной загрузки 
-  // вынести роутинг отдельно 
-  // lazy loading на всю карточку, чтобы повысить LCP
+// добавить прелоадер к картинке, чтобы не было видно серый фон после окончательной загрузки 
+// вынести роутинг отдельно 
+// lazy loading на всю карточку, чтобы повысить LCP
 
 // ПРИКОЛЫ
-  // lazy loading красивый (анимация градиента) + aspect ratio
-  // пагинация на главной (ускорит загрузку данных) - по обсерверу/пагинация по страницам 
-  // добавить сост-я, если данных нет, сост-е и loading (продукты на главной)
-  // header + burger on mobile
-  // заебашить свайпер в в карточках
+// lazy loading красивый (анимация градиента) + aspect ratio
+// пагинация на главной (ускорит загрузку данных) - по обсерверу/пагинация по страницам 
+// добавить сост-я, если данных нет, сост-е и loading (продукты на главной)
+// header + burger on mobile
+// заебашить свайпер в в карточках
 
 
 // --------------------------------------- dirty --------------------------------------------------
@@ -59,21 +59,25 @@ import { TestPage, ProductsPage } from "./pages";
 
 
 function App() {
+  console.log(process.env)
   return (
     <React.Fragment>
-      <ErrorBoundary>
-      <div>header<Navigation /></div>
-      <div className="container">
-        
-        <div style={{height:600, background: 'grey'}}>prety head will be here</div>
-        {/* вместо этого придумать красивую шапку 0 для lcp */}
-
-      <Routes>
-        <Route path="/" element={<ProductsPage />} />
-        <Route path="/test" element={<TestPage />} />
-      </Routes>
+      <div> env
+  {    process.env.REACT_APP_URL}
       </div>
-      <div>footer</div>
+      <ErrorBoundary>
+          <div className="column">header<Navigation /></div>
+
+          <Preview />
+          {/* <div style={{ height: 600, background: 'grey' }}>prety head will be here</div> */}
+          {/* вместо этого придумать красивую шапку 0 для lcp */}
+
+          <Routes>
+            <Route path="/" element={<ProductsPage />} />
+            <Route path="/test" element={<TestPage />} />
+          </Routes>
+
+        <div className="column">footer</div>
       </ErrorBoundary>
     </React.Fragment>
   );

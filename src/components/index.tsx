@@ -8,6 +8,7 @@ import Modal from "./ui/Modal";
 import Icon from "./ui/Icon";
 import Navigation from "./ui/Navigation";
 import Picture from "./ui/Picture";
+import Preview from "./ui/Preview";
 
 // Product
 import Product from "./Product/Product";
@@ -16,6 +17,6 @@ import ProductList from "./Product/ProductList";
 export {
     ErrorBoundary,
     // ui
-    Error, Button, Loader, Modal, Icon, Navigation, Picture,
+    Error, Button, Loader, Modal, Icon, Navigation, Picture, Preview,
     // Product
     Product, ProductList}

@@ -15,10 +15,12 @@ function ProductsPage() {
 
   return (
     <ErrorBoundary>
-      <div className='block'>
+      <div className=''>
+        <div className='column'>
 
-        <ProductList products={reduxProducts} />
+          <ProductList products={reduxProducts} />
 
+        </div>
       </div>
     </ErrorBoundary>
   );
