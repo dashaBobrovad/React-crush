@@ -3,7 +3,7 @@ import testReducer from './reducers/testReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import productsReducer from './reducers/productsReducer';
-import { AppStore } from '../types/store';
+import { AppStore } from '../types/storeTypes';
 
 const rootReducer = combineReducers({
     test: testReducer, 

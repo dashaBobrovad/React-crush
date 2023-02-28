@@ -1,5 +1,5 @@
 import { IProduct } from '../../types/IProduct';
-import { IProductsState, ProductsActionTypes, ProductsAction } from '../../types/productsReducer';
+import { IProductsState, ProductsActionTypes, ProductsAction } from '../../types/productsReducerTypes';
 
 const initialState: IProductsState = {
     products:[]

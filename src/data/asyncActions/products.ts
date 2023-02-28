@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { getProductsAction } from "../reducers/productsReducer";
 import { Dispatch } from 'redux';
-import { ProductsAction } from "../../types/productsReducer";
+import { ProductsAction } from "../../types/productsReducerTypes";
 
 
 export const fetchProducts = () => {
