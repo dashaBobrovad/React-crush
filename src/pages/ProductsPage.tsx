@@ -1,39 +1,27 @@
-import React, { useState } from 'react';
-import {CreateProductForm, Error, ErrorBoundary, Loader, Modal, Product, ProductList} from "../components";
-import { useProducts } from "../data/hooks/products";
-import { IProduct } from "../types/IProduct";
+import React, {useEffect} from 'react';
+import { ErrorBoundary, ProductList } from "../components";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "../data/asyncActions/products";
+import { useTypedDispatch } from '../data/hooks/useTypedDispatch';
+import { useTypedSelector } from '../data/hooks/useTypedSelector';
 
 function ProductsPage() {
-  const { loading, error, products, addProduct } = useProducts();
-  const [isModal, setIsModal] = useState<boolean>(false);
 
-  const createProductHandler = (product: IProduct) => {
-    setIsModal(false);
-    addProduct(product);
-  };
+  const dispatch = useTypedDispatch();
+  const reduxProducts = useTypedSelector(state => state.products.products);
 
-  const onCloseModal = () =>{
-    setIsModal(false);
-  }
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
-  const onOpenModal = () => {
-    setIsModal(true)
-  }
   return (
     <ErrorBoundary>
-      <button type="button" className="py-2 px-4 border bg-yellow-400" onClick={onOpenModal}>create product</button>
-      <div className='block'>
-        {loading && <Loader />}
+      <div className=''>
+        <div className='column'>
 
-        {error && <Error error={error} />}
+          <ProductList products={reduxProducts} />
 
-        {!loading && <ProductList products={products}/>}
-
-        {isModal && (
-          <Modal onClose={onCloseModal}>
-            <CreateProductForm onCreate={createProductHandler} />
-          </Modal>
-        )}
+        </div>
       </div>
     </ErrorBoundary>
   );

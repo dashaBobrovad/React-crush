@@ -1,23 +1,16 @@
-import {Action, ActionCreator, Dispatch} from 'redux';
+import { IProduct } from '../../types/IProduct';
+import { IProductsState, ProductsActionTypes, ProductsAction } from '../../types/productsReducerTypes';
 
-const initialState = {
-    products:[],
+const initialState: IProductsState = {
+    products:[]
 };
 
-interface productsAction{
-    type: string,
-    payload: []
-}
-
-const GET_PRODUCTS = 'GET_PRODUCTS';
-export {GET_PRODUCTS};
-
-const productsReducer = (state = initialState, action: productsAction) => {
+const productsReducer = (state = initialState, action: ProductsAction): IProductsState => {
     switch (action.type) {
-        case GET_PRODUCTS:
+        case ProductsActionTypes.GET_PRODUCTS:
             return {
                 ...state,
-                products: [...state.products, action.payload]
+                products: [...action.payload]
             }
     
         default:
@@ -25,7 +18,7 @@ const productsReducer = (state = initialState, action: productsAction) => {
     }
 }
 
-const getProductsAction: ActionCreator<Action> = (payload) => ({type: GET_PRODUCTS, payload})
+const getProductsAction = (payload: IProduct[]) => ({type: ProductsActionTypes.GET_PRODUCTS, payload})
 
 export {getProductsAction};
 export default productsReducer;

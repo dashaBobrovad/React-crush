@@ -3,10 +3,15 @@ import testReducer from './reducers/testReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import productsReducer from './reducers/productsReducer';
+import { AppStore } from '../types/storeTypes';
 
-const rootReducer = combineReducers({test: testReducer, products: productsReducer})
+const rootReducer = combineReducers({
+    test: testReducer, 
+    products: productsReducer
+  })
 
-// const store = createStore(rootReducer, applyMiddleware(thunk));
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export type RootState = ReturnType<typeof rootReducer>;
+
+const store:AppStore = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
