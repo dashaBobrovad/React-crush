@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import { ErrorBoundary, Navigation, Preview } from "./components";
+import { ErrorBoundary, Header, Navigation, Preview } from "./components";
 import { TestPage, ProductsPage } from "./pages";
 
 
@@ -63,16 +63,9 @@ function App() {
   console.log(process.env)
   return (
     <React.Fragment>
-      <div> env
-  {    process.env.REACT_APP_URL}
-      </div>
       <ErrorBoundary>
-          <div className="column">header<Navigation /></div>
-
+          <Header />
           <Preview />
-          {/* <div style={{ height: 600, background: 'grey' }}>prety head will be here</div> */}
-          {/* вместо этого придумать красивую шапку 0 для lcp */}
-
           <Routes>
             <Route path="/" element={<ProductsPage />} />
             <Route path="/test" element={<TestPage />} />
