@@ -14,12 +14,13 @@ function Picture({ src, parentClass }: IPicture) {
   const imgRef = React.useRef<any>();
 
   useIntersection(imgRef, () => {
-    setIsInView(true);
+    // setIsInView(true);
   }, );
 
   const onLoad = () => {
-    setLoaded(true)
-  }
+    // setLoaded(true)
+  
+    setLoaded(false)}
 
   return (
     <div

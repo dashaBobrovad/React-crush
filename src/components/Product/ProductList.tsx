@@ -9,10 +9,10 @@ interface ProductProps {
 }
 
 const ProductList = ({ products }: ProductProps) => {
-  // const { loading, error } = useProducts();
   return (
     <div className={s.productList}>
-      {products.length >= 1 &&
+      {
+      // products.length >= 1 &&
         products.map((product, index) => (
           <Product product={products[index]} key={product.id} />
         ))}
