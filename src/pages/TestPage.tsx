@@ -1,8 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts } from "../data/asyncActions/products";
 import { testAction, addDataArrAction, addDataItemAction } from "../data/reducers/testReducer";
-// import { decrement, increment } from "../features/counter/counterSlice.js";
 
 function TestPage() {
   const value = useSelector((state: any) => state.test.value);
@@ -19,7 +17,7 @@ interface IObj{
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="column">
       TestPage page
 
       <button

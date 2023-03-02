@@ -1,14 +1,11 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import { ErrorBoundary, Header, Navigation, Preview } from "./components";
-import { TestPage, ProductsPage } from "./pages";
+import { Header } from "./components";
+import { TestPage, ProductsPage, BasketPage } from "./pages";
 
 
 // ОПТИМИЗАЦИЯ (держим 80+ lighthouse)
-// lazy load img
-// lazy import libs
-// suspense
-// кэширование (memo) + список товаров в локальное хранилище 
+// cls (сразу показывать какие-то карточки, чтобы не было скачка)
 
 // REDUX
 // типизация Redux
@@ -60,20 +57,22 @@ import { TestPage, ProductsPage } from "./pages";
 
 
 function App() {
-  console.log(process.env)
   return (
-    <React.Fragment>
-      <ErrorBoundary>
-          <Header />
-          <Preview />
-          <Routes>
-            <Route path="/" element={<ProductsPage />} />
-            <Route path="/test" element={<TestPage />} />
-          </Routes>
-
+    <div className="site">
+      <div className="site_content">
+        <Header />
+        <Routes>
+          <Route path="/" element={<ProductsPage />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/basket" element={<BasketPage />} />
+        </Routes>
+      </div>
+      
+      <div className="footer">
         <div className="column">footer</div>
-      </ErrorBoundary>
-    </React.Fragment>
+      </div>
+
+    </div>
   );
 }
 

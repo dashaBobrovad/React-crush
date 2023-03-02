@@ -1,18 +1,19 @@
 import React, { ReactNode } from 'react';
 
 interface ButtonProps {
-  onClick?: () => void,
   children?: ReactNode,
   className?: string,
+  [x:string]: any;
 }
 
 
-function Button({ onClick, children, className = '' }: ButtonProps) {
+function Button({ children, className = '', ...rest }: ButtonProps) {
   // вынести button в глобальные стили 
   return (
     <button
       className={`button ${className}`}
-      onClick={onClick}>
+      {...rest}
+    >
       {children}
     </button>
   );

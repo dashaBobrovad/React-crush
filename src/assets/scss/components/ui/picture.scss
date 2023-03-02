@@ -5,6 +5,10 @@
 	background-color:#ccc ;
   overflow: hidden;
   width: 100%;
+
+	&-noPlaceholder{
+		background-color: inherit;
+	}
 }
 
 .picture::before {

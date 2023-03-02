@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react';
-import { ErrorBoundary, ProductList } from "../components";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from 'react';
+import { ErrorBoundary, Preview, ProductList } from "../components";
 import { fetchProducts } from "../data/asyncActions/products";
 import { useTypedDispatch } from '../data/hooks/useTypedDispatch';
 import { useTypedSelector } from '../data/hooks/useTypedSelector';
@@ -15,15 +14,12 @@ function ProductsPage() {
   }, []);
 
   return (
-    <ErrorBoundary>
-      <div className=''>
-        <div className='column'>
-
-          <ProductList products={reduxProducts} />
-
-        </div>
+    <React.Fragment>
+      <Preview />
+      <div className='column'>
+        <ProductList products={reduxProducts} />
       </div>
-    </ErrorBoundary>
+    </React.Fragment>
   );
 }
 

@@ -4,11 +4,10 @@ import {Preloader} from '../../components';
 
 interface IPicture {
   src: string,
-  width: number,
-  height: number,
+  parentClass: string
 }
 
-function Picture({ src, width, height }: IPicture) {
+function Picture({ src, parentClass }: IPicture) {
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
@@ -19,17 +18,16 @@ function Picture({ src, width, height }: IPicture) {
   }, );
 
   const onLoad = () => {
-    console.log('onLoad')
     setLoaded(true)
   }
 
   return (
     <div
-      className="picture"
+      className={`${parentClass} picture picture-${isLoaded ? 'noPlaceholder' : ''}`}
       ref={imgRef}
-      style={{
-        paddingBottom: `${(height / width) * 100}%`,
-      }}
+      // style={{
+      //   paddingBottom: `${(height / width) * 100}%`,
+      // }}
     >
       {
         !isLoaded && <Preloader />

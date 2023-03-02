@@ -1,5 +1,6 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import { Link } from "react-router-dom";
 import s from '../../assets/scss/components/ui/Preview.module.scss';
 import Icon from "./Icon";
 
@@ -14,10 +15,14 @@ function Preview() {
             В ассортименте марки представлены: одежда, обувь, сумки и аксессуары.
           </h1>
 
+
           <div className={s.preview__link}>
-            <span>Перейти в корзину</span>
-            <Icon icon={faArrowRight} className={s.preview__linkArrow}/>
+            <Link to="/basket">
+              <span>Перейти в корзину</span>
+              <Icon icon={faArrowRight} className={s.preview__linkArrow} />
+            </Link>
           </div>
+
         </div>
       </div>
     </div>
