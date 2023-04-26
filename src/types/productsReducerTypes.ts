@@ -1,11 +1,13 @@
 import { IProduct } from "./IProduct";
 
 export enum ProductsActionTypes{
-  GET_PRODUCTS = 'GET_PRODUCTS'
+  GET_PRODUCTS = 'GET_PRODUCTS',
+  ADD_PRODUCTS_TO_BASKET = 'ADD_PRODUCTS_TO_BASKET'
 }
 
 export interface IProductsState{
   products:IProduct[];
+  basket:IProduct[];
 }
 
 interface IGetProductsAction {
@@ -13,4 +15,9 @@ interface IGetProductsAction {
   payload: IProduct[];
 }
 
-export type ProductsAction = IGetProductsAction; // action1 | action2
+interface IAddProductsToBasket {
+  type: ProductsActionTypes.ADD_PRODUCTS_TO_BASKET ;
+  payload: IProduct | any // ???
+}
+
+export type ProductsAction = IGetProductsAction | IAddProductsToBasket ; // action1 | action2

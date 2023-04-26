@@ -1,18 +1,12 @@
 import React from "react";
 import { Route, Routes } from 'react-router-dom';
-import { ErrorBoundary, Navigation, Preview } from "./components";
-import { TestPage, ProductsPage } from "./pages";
+import { Header } from "./components";
+import { TestPage, ProductsPage, BasketPage, ProductPage } from "./pages";
 
 
 // ОПТИМИЗАЦИЯ (держим 80+ lighthouse)
-// lazy load img
-// lazy import libs
-// suspense
-// кэширование (memo) + список товаров в локальное хранилище 
 
 // REDUX
-// типизация Redux
-// переписываем данные на Redux (не все, а которые нужны глобально - иначе контекст)
 // переписать на тулкит (или сделать 2 варианта в отдельных ветках)
 
 // TS
@@ -25,6 +19,8 @@ import { TestPage, ProductsPage } from "./pages";
 // lazy loading на всю карточку, чтобы повысить LCP
 
 // ПРИКОЛЫ
+// добавить категории (они приходят) - типа как на ВБ 9меню слева)
+// страница товара (+ "еще из этой категории" )
 // lazy loading красивый (анимация градиента) + aspect ratio
 // пагинация на главной (ускорит загрузку данных) - по обсерверу/пагинация по страницам 
 // добавить сост-я, если данных нет, сост-е и loading (продукты на главной)
@@ -35,20 +31,7 @@ import { TestPage, ProductsPage } from "./pages";
 // --------------------------------------- dirty --------------------------------------------------
 // возможность ставить рейтинг + пересчитываем только на той карточке, где поменяли
 // воткнуть перевод i18n
-// замутить перевод (русский и английский)
-// Редакс (пока что только запрос всех товаров) + почитать про санки и если нужно подключить тоже 
-// добавить возможность оценивать товар (+ дальше если купили, уменьшать кол-во)
-// правильно ли подключен и сипользуется fontawesome
-
-// сделать подгрузку карточек частями (или кнопка "Показать больше")
-// оптимизация изображений (тоже отделенная загрузка какая-нибудь)
-// react-skeleton 
-// сделать переключалку на табличный вид и на сетку 
-
-// убрать либу таилвига
 // сделать простую оплату (qr/lib)
-// page speed
-// сделать страницу, на ней переключалка (в виде таблици и в виде карточек), внутрь каждого можно проваливаться
 // можно еще захуярить смену тем (тепно-зеленая и розовая, например)
 // 404
 
@@ -60,27 +43,23 @@ import { TestPage, ProductsPage } from "./pages";
 
 
 function App() {
-  console.log(process.env)
   return (
-    <React.Fragment>
-      <div> env
-  {    process.env.REACT_APP_URL}
+    <div className="site">
+      <div className="site_content">
+        <Header />
+        <Routes>
+          <Route path="/" element={<ProductsPage />} />
+          <Route path="/test" element={<TestPage />} />
+          <Route path="/basket" element={<BasketPage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+        </Routes>
       </div>
-      <ErrorBoundary>
-          <div className="column">header<Navigation /></div>
 
-          <Preview />
-          {/* <div style={{ height: 600, background: 'grey' }}>prety head will be here</div> */}
-          {/* вместо этого придумать красивую шапку 0 для lcp */}
-
-          <Routes>
-            <Route path="/" element={<ProductsPage />} />
-            <Route path="/test" element={<TestPage />} />
-          </Routes>
-
+      <div className="footer">
         <div className="column">footer</div>
-      </ErrorBoundary>
-    </React.Fragment>
+      </div>
+
+    </div>
   );
 }
 

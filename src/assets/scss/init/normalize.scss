@@ -83,7 +83,9 @@ pre {
  */
 
 a {
-  background-color: transparent;
+  background-color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 /**

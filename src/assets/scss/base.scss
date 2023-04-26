@@ -1,5 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
 // init
 @import '../scss/init/vars/';
+@import '../scss/init/containers/site.scss';
 @import '../scss/init/containers/column.scss';
 @import '../scss/init/containers/block.scss';
 @import '../scss/init/normalize.scss';
