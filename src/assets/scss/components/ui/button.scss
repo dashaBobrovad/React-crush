@@ -1,0 +1,21 @@
+@import '../../init/vars/';
+
+.button{
+  text-decoration: none;
+  display: inline-block;
+  padding: $padding-s $padding-m;
+  border-radius: $radius-xl;
+  
+  &--gradient{
+    background: $linerGradient;
+    background-position: 100% 0;
+    background-size: 200% 200%;
+    color: $white;
+    box-shadow: 2px 3px 3px 0 rgba(0, 40, 40, .15);
+    transition: .5s;
+    &:hover{
+      box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+      background-position: 0 0;
+    }
+  }
+}

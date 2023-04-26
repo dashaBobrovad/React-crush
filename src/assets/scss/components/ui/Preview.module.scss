@@ -1,0 +1,54 @@
+@import '../../init/vars';
+
+.preview {
+  height: 600px;
+  width: 100%;
+  background: $linerGradient;
+  color: $white;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 46px;
+    line-height: 120%;
+    display: block;
+  }
+
+  &__link {
+    font-size: $fontSize-m;
+    align-self: flex-end;
+    display: block;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover .preview__linkArrow {
+      animation: arrow-hover 1s linear;
+    }
+  }
+
+  &__linkArrow {
+    margin-left: 10px;
+    // &:hover{
+    //   animation: arrow-hover 1s linear infinite;
+    // }
+  }
+}
+
+@keyframes arrow-hover {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  100%{
+    transform: translateX(0);
+  }
+
+
+}

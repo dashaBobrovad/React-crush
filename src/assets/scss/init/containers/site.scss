@@ -1,0 +1,21 @@
+@import '../vars/index.scss';
+
+.site{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &_content{
+    flex: 1 0 auto;
+  }
+}
+
+
+
+// footer
+.footer{
+  color: $white;
+  background-color: black;
+  flex: 0 0 auto;
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+@import '../../init/vars';
+
+.productList{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $gap-m;
+}
+
+@media (max-width: $media-mobile){
+  .productList{
+    grid-template-columns: 1fr;
+  }
+}
