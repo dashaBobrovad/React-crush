@@ -9,10 +9,10 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:react/jsx-runtime",
         "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
+        "plugin:jsx-a11y/recommended", // for html
         "plugin:import/recommended",
         "prettier",
-        "airbnb"
+        "airbnb" // codestyle
     ],
     "overrides": [
     ],
