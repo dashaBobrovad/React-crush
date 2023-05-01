@@ -1,10 +1,9 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.scss";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import store from "./data/store";
 import { Provider } from "react-redux";
+import App from "./App";
+import store from "./data/store";
 import { ErrorBoundary } from "./components";
 
 const root = ReactDOM.createRoot(

@@ -1,19 +1,17 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface ButtonProps {
-  children?: ReactNode,
-  className?: string,
-  [x:string]: any;
+  children: undefined | ReactNode;
+  className: null | string;
+  [x: string]: any;
 }
 
-
-function Button({ children, className = '', ...rest }: ButtonProps) {
-  // вынести button в глобальные стили 
+function Button({ children, className = "", ...rest }: ButtonProps) {
+  // вынести button в глобальные стили
   return (
-    <button
-      className={`button ${className}`}
-      {...rest}
-    >
+    // TODO: избавиться от eslint-disable-next-line
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <button type="button" className={`button ${className}`} {...rest}>
       {children}
     </button>
   );

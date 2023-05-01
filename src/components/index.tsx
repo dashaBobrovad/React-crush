@@ -2,7 +2,7 @@ import ErrorBoundary from "./ErrorBoundary";
 
 // ui
 import Error from "./ui/Error";
-import Button from "./ui/Button"
+import Button from "./ui/Button";
 import Modal from "./ui/Modal";
 import Icon from "./ui/Icon";
 import Navigation from "./ui/Navigation";
@@ -17,9 +17,19 @@ import ProductList from "./Product/ProductList";
 import ProductSeparated from "./Product/ProductSeparated";
 
 export {
-    ErrorBoundary,
-    // ui
-    Error, Button, Modal, Icon, Navigation, Picture, Preview, Preloader, Header,
-    // Product
-    Product, ProductList, ProductSeparated
-}
+  ErrorBoundary,
+  // ui
+  Error,
+  Button,
+  Modal,
+  Icon,
+  Navigation,
+  Picture,
+  Preview,
+  Preloader,
+  Header,
+  // Product
+  Product,
+  ProductList,
+  ProductSeparated,
+};
