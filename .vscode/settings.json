@@ -20,5 +20,8 @@
       "backgroundColor": "rgba(46,24,83,0.5)",
       "isWholeLine": true
     }
-  ]
+  ],
+  "[css][scss][less]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  }
 }
