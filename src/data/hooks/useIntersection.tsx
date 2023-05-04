@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from "react";
 
-let listenerCallbacks = new WeakMap();
+const listenerCallbacks = new WeakMap();
 
 let observer: any;
 
 function handleIntersections(entries: any) {
   entries.forEach((entry: any) => {
     if (listenerCallbacks.has(entry.target)) {
-      let cb = listenerCallbacks.get(entry.target);
+      const cb = listenerCallbacks.get(entry.target);
 
       if (entry.isIntersecting || entry.intersectionRatio > 0) {
         observer.unobserve(entry.target);
@@ -21,8 +21,8 @@ function handleIntersections(entries: any) {
 function getIntersectionObserver() {
   if (observer === undefined) {
     observer = new IntersectionObserver(handleIntersections, {
-      rootMargin: '100px',
-      threshold: '0.15' as any,
+      rootMargin: "100px",
+      threshold: "0.15" as any,
     });
   }
   return observer;
@@ -30,16 +30,16 @@ function getIntersectionObserver() {
 
 function useIntersection(elem: any, callback: any) {
   useEffect(() => {
-    let target = elem.current;
-    let observer = getIntersectionObserver();
+    const target = elem.current;
+    const observ = getIntersectionObserver();
     listenerCallbacks.set(target, callback);
-    observer.observe(target);
+    observ.observe(target);
 
     return () => {
       listenerCallbacks.delete(target);
-      observer.unobserve(target);
+      observ.unobserve(target);
     };
   }, []);
 }
 
-export {useIntersection};
+export default useIntersection;

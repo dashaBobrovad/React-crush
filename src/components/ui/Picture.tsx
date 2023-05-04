@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useIntersection } from '../../data/hooks/useIntersection';
-import {Preloader} from '../../components';
+import React, { useState } from "react";
+import useIntersection from "../../data/hooks/useIntersection";
+import { Preloader } from "..";
 
 interface IPicture {
-  src: string,
-  parentClass: string
+  src: string;
+  parentClass: string;
 }
 
 function Picture({ src, parentClass }: IPicture) {
@@ -12,34 +12,29 @@ function Picture({ src, parentClass }: IPicture) {
   const [isLoaded, setLoaded] = useState(false);
 
   const imgRef = React.useRef<any>();
-  
+
   useIntersection(imgRef, () => {
     setIsInView(true);
-  }, );
+  });
 
   const onLoad = () => {
-    setLoaded(true)
-
-  }
+    setLoaded(true);
+  };
 
   return (
     <div
-      className={`${parentClass} picture picture-${isLoaded ? 'noPlaceholder' : ''}`}
+      className={`${parentClass} picture picture-${
+        isLoaded ? "noPlaceholder" : ""
+      }`}
       ref={imgRef}
       // style={{
       //   paddingBottom: `${(height / width) * 100}%`,
       // }}
     >
-      {
-        !isLoaded && <Preloader />
-      }
-      
+      {!isLoaded && <Preloader />}
+      {/* TODO: передавать правильный alt */}
       {isInView && (
-        <img
-          className='picture_image'
-          src={src}
-          onLoad={onLoad}
-        />
+        <img className="picture_image" src={src} onLoad={onLoad} alt={src} />
       )}
     </div>
   );
