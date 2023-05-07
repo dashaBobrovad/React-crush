@@ -2,6 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { ProductsPage, BasketPage, ProductPage } from "./pages";
 
+// TODO: исправить классы
+// TODO: положить стили в папку с компонентом 
+// TODO: корзина
+// TODO: classnames (достать функцией)
+
+
 // ОПТИМИЗАЦИЯ (держим 80+ lighthouse)
 
 // REDUX

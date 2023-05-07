@@ -8,8 +8,8 @@ function Navigation() {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? `${s.navigation__item} ${s["navigation__item--active"]}`
-            : s.navigation__item
+            ? `${s.item} ${s.active}`
+            : s.item
         }
       >
         Main
@@ -18,8 +18,8 @@ function Navigation() {
         to="/test"
         className={({ isActive }) =>
           isActive
-            ? `${s.navigation__item} ${s["navigation__item--active"]}`
-            : s.navigation__item
+            ? `${s.item} ${s.active}`
+            : s.item
         }
       >
         Test Page (polygon)

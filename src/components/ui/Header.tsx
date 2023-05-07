@@ -7,11 +7,11 @@ import Navigation from "./Navigation";
 function Header() {
   return (
     <div className={s.header}>
-      <div className={`${s.header__content} column`}>
+      <div className={`${s.content} column`}>
         <Navigation />
         <Link to="/basket">
           {" "}
-          <div className={s.header__basket}>
+          <div className={s.basket}>
             <Icon icon={faBasketShopping} />
           </div>
         </Link>
