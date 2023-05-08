@@ -4,7 +4,7 @@ import useTypedSelector from "../data/hooks/useTypedSelector";
 import { IProduct } from "../types/IProduct";
 
 function BasketPage() {
-  const basketList = useTypedSelector((state) => state.products.basket);
+  const basketList = useTypedSelector((state) => state.products.basket.list);
   return (
     <>
       <div className="column">BasketPage</div>

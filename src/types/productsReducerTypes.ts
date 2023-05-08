@@ -7,7 +7,11 @@ export enum ProductsActionTypes {
 
 export interface IProductsState {
   products: IProduct[];
-  basket: IProductBasket[];
+  basket: {
+    list: IProductBasket[],
+    totalPrice: number,
+    totalCount: number
+  };
 }
 
 interface IGetProductsAction {
