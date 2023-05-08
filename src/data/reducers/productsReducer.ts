@@ -45,12 +45,12 @@ const productsReducer = (
   }
 };
 
-const getProductsAction = (payload: IProduct[]) => ({
+const getProductsAction = (payload: IProduct[]): ProductsAction => ({
   type: ProductsActionTypes.GET_PRODUCTS,
   payload,
 });
 
-const addProductsToBasketAction = (payload: IProduct) => ({
+const addProductsToBasketAction = (payload: IProduct): ProductsAction => ({
   type: ProductsActionTypes.ADD_PRODUCTS_TO_BASKET,
   payload,
 });
