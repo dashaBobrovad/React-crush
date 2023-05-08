@@ -16,12 +16,13 @@ interface IProductCardProps {
 function ProductCard({ product }: IProductCardProps) {
   const dispatch = useTypedDispatch();
 
-  const addProductToBasket = (productItem: IProduct) => {
+  const addProductToBasket = (e:Event, productItem: IProduct) => {
+    e.preventDefault();
     dispatch(addProductsToBasketAction(productItem));
   };
 
   return (
-    <NavLink to={`product/${product.id}`}>
+    <NavLink to={`/product/${product.id}`}>
       <div className={s.product}>
         <Picture src={product.image} parentClass={s.image} />
         <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
@@ -37,10 +38,10 @@ function ProductCard({ product }: IProductCardProps) {
           </p>
         </div>
         <Button
-          className="button--gradient"
-          onClick={() => addProductToBasket(product)}
+          className={`button--gradient ${s.button}`}
+          onClick={(e:Event) => addProductToBasket(e, product)}
         >
-          go to product
+          +
         </Button>
       </div>
     </NavLink>

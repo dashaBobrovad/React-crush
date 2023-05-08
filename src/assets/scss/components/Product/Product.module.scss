@@ -52,6 +52,9 @@
   align-self: stretch;
 }
 
+.button{
+  z-index: 2;
+}
 
 
 @media (max-width: $media-mobile) {

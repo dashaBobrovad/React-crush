@@ -7,7 +7,7 @@ import {
 
 const initialState: IProductsState = {
   products: [],
-  basket: [],
+  basket: {},
 };
 
 const productsReducer = (
@@ -23,7 +23,16 @@ const productsReducer = (
     case ProductsActionTypes.ADD_PRODUCTS_TO_BASKET:
       return {
         ...state,
-        basket: [...state.basket, action.payload],
+        // basket: [...state.basket, action.payload],
+        // фильтровать так, что если совпадает id добавлять под 1 ключ
+        // basket: [...state.basket, Object.assign(action.payload, {quantity: 1})],
+        // basket: Object.assign(state.basket, {[action.payload.id]:Object.assign(action.payload, {quantity: true ? 1 : 0})}) 
+        basket: Object.assign(
+          state.basket,
+          // test is not defined
+          {[action.payload.id]:Object.assign(action.payload,state.basket[state.basket[action.payload.id as keyof typeof state.basket]][test as unknown as string] + 1)}
+         
+        )
       };
     default:
       return state;
