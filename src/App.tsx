@@ -2,6 +2,15 @@ import { Route, Routes } from "react-router-dom";
 import { Header } from "./components";
 import { ProductsPage, BasketPage, ProductPage } from "./pages";
 
+// TODO: положить стили в папку с компонентом 
+// TODO: сделать 3 поля в корзинке (items & totalPrice & count), !сделать красывый вывод инфы на странице корзинки 
+// TODO: ифылуе еы (remove any}
+// TODO: сохранять сост-е при перезагрузке (localStorage)
+// TODO: очистка корзины
+// TODO: корзина (поле в редаксе и показывать из него; если несколько одинаковых - кол-во)
+// TODO: classnames (достать функцией)
+
+
 // ОПТИМИЗАЦИЯ (держим 80+ lighthouse)
 
 // REDUX

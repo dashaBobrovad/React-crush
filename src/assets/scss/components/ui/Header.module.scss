@@ -1,20 +1,20 @@
 @import '../../init/vars';
 
-.header{
+.header {
   background-color: $black;
+}
 
-  &__basket{
-    color: white;
-    &:hover{
-      color: $blue-light;
-      cursor: pointer;
-    }
-  }
-  
-  &__content{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.basket {
+  color: white;
 
+  &:hover {
+    color: $blue-light;
+    cursor: pointer;
+  }
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

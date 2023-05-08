@@ -5,37 +5,35 @@
   width: 100%;
   background: $linerGradient;
   color: $white;
+}
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-  }
+.content {
+  display: flex;
+  flex-direction: column;
+}
 
-  &__title {
-    font-size: 46px;
-    line-height: 120%;
-    display: block;
-  }
+.title {
+  font-size: 46px;
+  line-height: 120%;
+  display: block;
+}
 
-  &__link {
-    font-size: $fontSize-m;
-    align-self: flex-end;
-    display: block;
-    align-items: center;
-    cursor: pointer;
+.link {
+  font-size: $fontSize-m;
+  align-self: flex-end;
+  display: block;
+  align-items: center;
+  cursor: pointer;
 
-    &:hover .preview__linkArrow {
-      animation: arrow-hover 1s linear;
-    }
-  }
-
-  &__linkArrow {
-    margin-left: 10px;
-    // &:hover{
-    //   animation: arrow-hover 1s linear infinite;
-    // }
+  &:hover .linkArrow {
+    animation: arrow-hover 1s linear;
   }
 }
+
+.linkArrow {
+  margin-left: 10px;
+}
+
 
 @keyframes arrow-hover {
   0% {
@@ -46,7 +44,7 @@
     transform: translateX(5px);
   }
 
-  100%{
+  100% {
     transform: translateX(0);
   }
 
