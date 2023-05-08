@@ -10,3 +10,7 @@ export interface IProduct {
     count: number;
   };
 }
+
+export interface IProductBasket extends IProduct {
+  qty?:number;
+}

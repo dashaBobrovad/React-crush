@@ -1,4 +1,4 @@
-import { IProduct } from "../../types/IProduct";
+import { IProduct, IProductBasket } from "../../types/IProduct";
 import {
   IProductsState,
   ProductsActionTypes,
@@ -7,13 +7,14 @@ import {
 
 const initialState: IProductsState = {
   products: [],
-  basket: {},
+  basket: [],
 };
 
 const productsReducer = (
   state = initialState,
   action: ProductsAction
 ): IProductsState => {
+
   switch (action.type) {
     case ProductsActionTypes.GET_PRODUCTS:
       return {
@@ -21,18 +22,23 @@ const productsReducer = (
         products: [...action.payload],
       };
     case ProductsActionTypes.ADD_PRODUCTS_TO_BASKET:
+      if (state.basket.find((product: IProductBasket) => product.id === action.payload.id)) {
+        return {
+          ...state,
+          basket: state.basket.map((item : IProductBasket) => item.id === action.payload.id
+            ? {
+              ...item,
+              qty: item.qty ? item.qty  + 1 : 2,
+            }
+            : item
+          ),
+        };
+      }
+    
       return {
         ...state,
-        // basket: [...state.basket, action.payload],
-        // фильтровать так, что если совпадает id добавлять под 1 ключ
-        // basket: [...state.basket, Object.assign(action.payload, {quantity: 1})],
-        // basket: Object.assign(state.basket, {[action.payload.id]:Object.assign(action.payload, {quantity: true ? 1 : 0})}) 
-        basket: Object.assign(
-          state.basket,
-          // test is not defined
-          {[action.payload.id]:Object.assign(action.payload,state.basket[state.basket[action.payload.id as keyof typeof state.basket]][test as unknown as string] + 1)}
-         
-        )
+        basket: [...state.basket, action.payload],
+        // totalPrice: state.totalPrice + payload.price,
       };
     default:
       return state;
