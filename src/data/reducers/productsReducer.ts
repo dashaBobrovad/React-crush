@@ -29,28 +29,30 @@ const productsReducer = (
       if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id)) {
         return {
           ...state,
-          basket: Object.assign(
-            state.basket, 
-            { list: state.basket.list.map((item : IProductBasket) => item.id === action.payload.id
+          basket: 
+            {...state.basket, 
+            list: state.basket.list.map((item : IProductBasket) => item.id === action.payload.id
             ? {
               ...item,
               qty: item.qty ? item.qty  + 1 : 2,
             }
-            : item
-          ),})
+            : item,
+            ),
+          totalPrice: state.basket.totalPrice + action.payload.price,
+          totalCount: state.basket.totalCount + 1,}
         };
       }
     
       return {
         ...state,
-        basket: Object.assign(
-          state.basket,
-          {
+        basket: 
+          {...state.basket,
+          
             list: [...state.basket.list, action.payload], 
             totalPrice: state.basket.totalPrice + action.payload.price,
             totalCount: state.basket.totalCount + 1,
           }
-        ),
+        ,
       };
     default:
       return state;

@@ -18,6 +18,7 @@ function ProductCard({ product }: IProductCardProps) {
 
   const addProductToBasket = (e:Event, productItem: IProduct) => {
     e.preventDefault();
+    console.log("addProductToBasket");
     dispatch(addProductsToBasketAction(productItem));
   };
 
