@@ -7,7 +7,11 @@ import {
 
 const initialState: IProductsState = {
   products: [],
-  basket: [],
+  basket: {
+    list: [], 
+    totalPrice: 0, 
+    totalCount: 0
+  },
 };
 
 const productsReducer = (
@@ -22,35 +26,43 @@ const productsReducer = (
         products: [...action.payload],
       };
     case ProductsActionTypes.ADD_PRODUCTS_TO_BASKET:
-      if (state.basket.find((product: IProductBasket) => product.id === action.payload.id)) {
+      if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id)) {
         return {
           ...state,
-          basket: state.basket.map((item : IProductBasket) => item.id === action.payload.id
+          basket: Object.assign(
+            state.basket, 
+            { list: state.basket.list.map((item : IProductBasket) => item.id === action.payload.id
             ? {
               ...item,
               qty: item.qty ? item.qty  + 1 : 2,
             }
             : item
-          ),
+          ),})
         };
       }
     
       return {
         ...state,
-        basket: [...state.basket, action.payload],
-        // totalPrice: state.totalPrice + payload.price,
+        basket: Object.assign(
+          state.basket,
+          {
+            list: [...state.basket.list, action.payload], 
+            totalPrice: state.basket.totalPrice + action.payload.price,
+            totalCount: state.basket.totalCount + 1,
+          }
+        ),
       };
     default:
       return state;
   }
 };
 
-const getProductsAction = (payload: IProduct[]) => ({
+const getProductsAction = (payload: IProduct[]): ProductsAction => ({
   type: ProductsActionTypes.GET_PRODUCTS,
   payload,
 });
 
-const addProductsToBasketAction = (payload: IProduct) => ({
+const addProductsToBasketAction = (payload: IProduct): ProductsAction => ({
   type: ProductsActionTypes.ADD_PRODUCTS_TO_BASKET,
   payload,
 });

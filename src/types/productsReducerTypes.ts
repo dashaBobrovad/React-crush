@@ -7,7 +7,11 @@ export enum ProductsActionTypes {
 
 export interface IProductsState {
   products: IProduct[];
-  basket: any;
+  basket: {
+    list: IProductBasket[],
+    totalPrice: number,
+    totalCount: number
+  };
 }
 
 interface IGetProductsAction {
@@ -17,8 +21,7 @@ interface IGetProductsAction {
 
 interface IAddProductsToBasket {
   type: ProductsActionTypes.ADD_PRODUCTS_TO_BASKET;
-  // TODO: пофиксить, как в platform тестовом 
-  payload: IProduct | IProductBasket | any;
+  payload: IProductBasket;
 }
 
 export type ProductsAction = IGetProductsAction | IAddProductsToBasket; // action1 | action2
