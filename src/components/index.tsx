@@ -12,7 +12,7 @@ import Preloader from "./ui/Preloader";
 import Header from "./ui/Header";
 
 // Product
-import Product from "./Product/ProductCard";
+import ProductCard from "./Product/ProductCard";
 import ProductList from "./Product/ProductList";
 import ProductSeparated from "./Product/ProductSeparated";
 
@@ -29,7 +29,8 @@ export {
   Preloader,
   Header,
   // Product
-  Product,
+  ProductCard,
   ProductList,
-  ProductSeparated,
+  ProductSeparated // ui
+  ,
 };

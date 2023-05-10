@@ -1,11 +1,11 @@
 import React from "react";
 import {shallowEqual,} from "react-redux";
-import { Product } from "../components";
+import { ProductCard } from "../components";
 import useTypedSelector from "../data/hooks/useTypedSelector";
-import { IProduct } from "../types/IProduct";
+import { IProduct, ProductType } from "../types/IProduct";
 
 function BasketPage() {
-  // shallowEqualsимеет смысл, когда вы выбираете объект, который может быть похож по содержимому, но отличается по ссылке
+  // shallowEquals имеет смысл, когда вы выбираете объект, который может быть похож по содержимому, но отличается по ссылке
   const basket = useTypedSelector((state) => state.products.basket, shallowEqual);
 
   React.useEffect(() => {
@@ -23,7 +23,7 @@ function BasketPage() {
       </ul>
       <div>
         {basket.list.map((product: IProduct, index: number) => (
-          <Product product={basket.list[index]} key={product.id} />
+          <ProductCard product={basket.list[index]} key={product.id} type={ProductType.BASKET}/>
         ))}
       </div>
       </div>

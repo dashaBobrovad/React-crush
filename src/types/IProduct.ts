@@ -14,3 +14,8 @@ export interface IProduct {
 export interface IProductBasket extends IProduct {
   qty?:number;
 }
+
+export enum ProductType {
+  DEFAULT = "default",
+  BASKET = "basket",
+}
