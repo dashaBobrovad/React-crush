@@ -23,7 +23,7 @@ const productsReducer = (
     case ProductsActionTypes.GET_PRODUCTS:
       return {
         ...state,
-        products: [...action.payload],
+        products: action.payload.map((item) => Object.assign(item, {price: Math.round(item.price)}))
       };
     case ProductsActionTypes.ADD_PRODUCTS_TO_BASKET:
       if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id)) {
@@ -55,13 +55,7 @@ const productsReducer = (
         ,
       };
     case ProductsActionTypes.REMOVE_PRODUCTS_FROM_BASKET: 
-      if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id && product && product.qty && product.qty >= 1)) {
-        console.log("product.qty >= 1");
-        
-        // TODO: fx bug: when remove qty > 1 total is false (item.id ?)
-
-        // console.log(action.payload.id);
-        
+      if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id && product && product.qty && product.qty > 1)) {
         return {
           ...state,
           basket: 
@@ -69,12 +63,11 @@ const productsReducer = (
             list: state.basket.list.map((item : IProductBasket) => item.id === action.payload.id 
             ? {
               ...item,
-              qty: item.qty ? item.qty - 1 : 0,
+              qty: item.qty && item.qty - 1,
             }
             : item,
             ),
-            // totalPrice: state.basket.totalPrice - action.payload.price >=action.payload.price ? state.basket.totalPrice - action.payload.price : 0,
-            // totalCount: state.basket.totalCount  > 0 ? state.basket.totalCount - 1 : 0,
+            totalPrice: state.basket.totalPrice - action.payload.price,
             totalCount: state.basket.totalCount - 1,
         }
         };
@@ -87,26 +80,11 @@ const productsReducer = (
           basket: 
             {...state.basket, 
               list: state.basket.list.filter(item => item.id !== action.payload.id 
-                // && action.payload.qty && action.payload.qty === 1
                 ),
-              // totalPrice: state.basket.totalPrice - action.payload.price >=action.payload.price ? state.basket.totalPrice - action.payload.price : 0,
-              // totalCount: state.basket.totalCount  > 0 ? state.basket.totalCount - 1 : 0,
+              totalPrice: state.basket.totalPrice - action.payload.price,
               totalCount: state.basket.totalCount - 1,
             }
       };
-      
-    
-      // return {
-      //   ...state,
-      //   basket: 
-      //     {...state.basket,
-          
-      //       // list: [...state.basket.list, action.payload], 
-      //       totalPrice: state.basket.totalPrice - action.payload.price,
-      //       totalCount: state.basket.totalCount - 1,
-      //     }
-      //   ,
-      // };
     default:
       return state;
   }

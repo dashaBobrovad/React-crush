@@ -8,11 +8,11 @@ function BasketPage() {
   // shallowEquals имеет смысл, когда вы выбираете объект, который может быть похож по содержимому, но отличается по ссылке
   const basket = useTypedSelector((state) => state.products.basket, shallowEqual);
 
-  React.useEffect(() => {
-    console.log("fx");
-    console.log(basket.totalCount);
-  }, [basket]
-  );
+  // React.useEffect(() => {
+  //   console.log("fx");
+  //   console.log(basket.totalCount);
+  // }, [basket]
+  // );
 
   return (
       <div className="column">
