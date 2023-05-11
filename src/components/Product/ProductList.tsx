@@ -1,5 +1,5 @@
 import React from "react";
-import { Product } from "..";
+import { ProductCard } from "..";
 import s from "../../assets/scss/components/Product/ProductList.module.scss";
 import { IProduct } from "../../types/IProduct";
 
@@ -13,7 +13,7 @@ function ProductList({ products }: ProductProps) {
       {
         // products.length >= 1 &&
         products.map((product, index) => (
-          <Product product={products[index]} key={product.id} />
+          <ProductCard product={products[index]} key={product.id} />
         ))
       }
 
