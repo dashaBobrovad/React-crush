@@ -7,6 +7,7 @@ interface IProductSeparatedProps {
   product: IProduct;
 }
 
+// TODO: перенести в pRosuctCard (там есть спец модификатор )
 // const ChildComponent = React.memo(function ChildComponent({ count }) {
 // const Product = ({ product }: ProductProps) => {
 function ProductSeparated({ product }: IProductSeparatedProps) {
