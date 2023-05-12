@@ -8,6 +8,7 @@ import Counter, { CounterSizeTypes } from "./Counter";
 import useTypedSelector from "../../data/hooks/useTypedSelector";
 
 function Header() {
+  // shallowEquals имеет смысл, когда вы выбираете объект, который может быть похож по содержимому, но отличается по ссылке (object)
   const totalCount = useTypedSelector((state) => state.products.basket.totalCount, shallowEqual);
 
   return (
@@ -17,7 +18,9 @@ function Header() {
         <Link to="/basket">
           {" "}
           <div className={s.basket}>
-            <Counter count={totalCount} size={CounterSizeTypes.SM}/>
+            {
+              totalCount !== 0 && <Counter count={totalCount} size={CounterSizeTypes.SM}/>
+            }
             <Icon icon={faBasketShopping} />
           </div>
         </Link>
