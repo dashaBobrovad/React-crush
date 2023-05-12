@@ -1,0 +1,16 @@
+.counter{
+  background-color: $notification;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $fontSize-xs;
+  font-weight: bold;
+}
+
+.counter--sm{
+  --size: 20px;
+  width: var(--size);
+  height: var(--size);
+}
+

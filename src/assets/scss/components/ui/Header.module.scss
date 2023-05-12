@@ -6,13 +6,22 @@
 
 .basket {
   color: white;
-
+  position: relative;
+  
   &:hover {
     color: $blue-light;
     cursor: pointer;
   }
+
+  &>[class*="counter"]{
+    position: absolute;
+    top: calc(-1 * (var(--size)/2));
+    right: calc(-1 * (var(--size)/2));
+  }
+  
 }
 
+.basket, 
 .content {
   display: flex;
   align-items: center;
