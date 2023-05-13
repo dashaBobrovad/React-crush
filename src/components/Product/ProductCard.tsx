@@ -5,7 +5,7 @@ import { IProduct, IProductBasket, ProductType } from "../../types/IProduct";
 import { Button, Icon, Picture } from "..";
 import s from "../../assets/scss/components/Product/Product.module.scss";
 import useTypedDispatch from "../../data/hooks/useTypedDispatch";
-import { addProductsToBasketAction, removeProductsFromBasketAction } from "../../data/reducers/productsReducer";
+import { addProductsToBasketAction, decreaseProductQtyFromBasketAction, removeProductFromBasketAction } from "../../data/reducers/productsReducer";
 
 
 interface IProductCardProps {
@@ -24,9 +24,14 @@ function ProductCard({ product, type }: IProductCardProps) {
     dispatch(addProductsToBasketAction(productItem));
   };
 
+  const decreaseProductQtyFromBasket = (e:Event, productItem: IProduct) => {
+    e.preventDefault();
+    dispatch(decreaseProductQtyFromBasketAction(productItem));
+  };
+
   const removeProductFromBasket = (e:Event, productItem: IProduct) => {
     e.preventDefault();
-    dispatch(removeProductsFromBasketAction(productItem));
+    dispatch(removeProductFromBasketAction(productItem));
   };
 
   return (
@@ -51,10 +56,17 @@ function ProductCard({ product, type }: IProductCardProps) {
               >+</Button> 
 
         { 
-          type === ProductType.BASKET &&  <Button
-          className={`button--gradient ${s.button}`}
-          onClick={(e:Event) => removeProductFromBasket(e, product)}
-          >-</Button>
+          type === ProductType.BASKET && (
+            <>
+              <Button
+                className={`button--gradient ${s.button}`}
+                onClick={(e:Event) => decreaseProductQtyFromBasket(e, product)}
+              >-</Button>
+              <Button
+                className={`button--gradient ${s.button}`}
+                onClick={(e:Event) => removeProductFromBasket(e, product)}
+              >X</Button>
+            </>)
         }
         
       </div>

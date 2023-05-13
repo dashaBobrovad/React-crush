@@ -60,8 +60,8 @@ switch (action.type) {
       },
     };
     
-    // ---------- REMOVE_PRODUCTS_FROM_BASKET ----------
-    case ProductsActionTypes.REMOVE_PRODUCTS_FROM_BASKET:
+    // ---------- DECREASE_PRODUCT_QTY_FROM_BASKET ----------
+    case ProductsActionTypes.DECREASE_PRODUCT_QTY_FROM_BASKET:
       if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id && product && product.qty && product.qty > 1)) {
         return {
           ...state,
@@ -92,6 +92,19 @@ switch (action.type) {
           }
         };
     
+    // ---------- REMOVE_PRODUCT_FROM_BASKET ----------
+    case ProductsActionTypes.REMOVE_PRODUCT_FROM_BASKET:
+      return{
+        ...state,
+        basket:
+            {
+              ...state.basket,
+              list: state.basket.list.filter(({ id }) => id !== action.payload.id),
+              // TODO: сократить условие ( ошибка, что action.payload.qty мб undefined)
+              totalCount: action.payload.qty && action.payload.qty > 1 ? state.basket.totalCount - action.payload.qty : state.basket.totalCount - 1,
+              totalPrice: action.payload.qty && action.payload.qty > 1 ? state.basket.totalPrice - action.payload.qty * action.payload.price : state.basket.totalPrice - action.payload.price,
+            }
+      };
     // ---------- default ----------
     default:
       return state;
@@ -108,8 +121,13 @@ const addProductsToBasketAction = (payload: IProduct): ProductsAction => ({
   payload,
 });
 
-const removeProductsFromBasketAction = (payload: IProduct): ProductsAction => ({
-  type: ProductsActionTypes.REMOVE_PRODUCTS_FROM_BASKET,
+const decreaseProductQtyFromBasketAction = (payload: IProduct): ProductsAction => ({
+  type: ProductsActionTypes.DECREASE_PRODUCT_QTY_FROM_BASKET,
+  payload,
+});
+
+const removeProductFromBasketAction = (payload: IProduct): ProductsAction => ({
+  type: ProductsActionTypes.REMOVE_PRODUCT_FROM_BASKET,
   payload,
 });
 
@@ -117,5 +135,6 @@ export {
   getProductsAction, 
   addProductsToBasketAction, 
   productsReducer, 
-  removeProductsFromBasketAction 
+  decreaseProductQtyFromBasketAction,
+  removeProductFromBasketAction, 
 };
