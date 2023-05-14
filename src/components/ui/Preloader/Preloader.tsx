@@ -1,4 +1,4 @@
-import s from "../../assets/scss/components/ui/Preloader.module.scss";
+import s from "./Preloader.module.scss";
 
 function Preloader() {
   return (

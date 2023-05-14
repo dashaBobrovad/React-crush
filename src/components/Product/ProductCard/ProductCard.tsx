@@ -1,11 +1,11 @@
 import React from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
-import { IProduct, IProductBasket, ProductType } from "../../types/IProduct";
-import { Button, Icon, Picture } from "..";
-import s from "../../assets/scss/components/Product/Product.module.scss";
-import useTypedDispatch from "../../data/hooks/useTypedDispatch";
-import { addProductsToBasketAction, decreaseProductQtyFromBasketAction, removeProductFromBasketAction } from "../../data/reducers/productsReducer";
+import { IProduct, IProductBasket, ProductType } from "../../../types/IProduct";
+import { Button, Icon, Picture } from "../../index";
+import s from "./Product.module.scss";
+import useTypedDispatch from "../../../data/hooks/useTypedDispatch";
+import { addProductsToBasketAction, decreaseProductQtyFromBasketAction, removeProductFromBasketAction } from "../../../data/reducers/productsReducer";
 
 
 interface IProductCardProps {

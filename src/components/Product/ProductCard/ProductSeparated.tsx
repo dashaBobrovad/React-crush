@@ -1,7 +1,7 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { IProduct } from "../../types/IProduct";
-import { Icon, Picture } from "..";
-import s from "../../assets/scss/components/Product/Product.module.scss";
+import { IProduct } from "../../../types/IProduct";
+import { Icon, Picture } from "../../index";
+import s from "./Product.module.scss";
 
 interface IProductSeparatedProps {
   product: IProduct;

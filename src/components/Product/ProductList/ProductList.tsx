@@ -1,7 +1,7 @@
 import React from "react";
-import { ProductCard } from "..";
-import s from "../../assets/scss/components/Product/ProductList.module.scss";
-import { IProduct } from "../../types/IProduct";
+import { ProductCard } from "../..";
+import s from "./ProductList.module.scss";
+import { IProduct } from "../../../types/IProduct";
 
 interface ProductProps {
   products: IProduct[];

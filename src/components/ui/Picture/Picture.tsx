@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import useIntersection from "../../data/hooks/useIntersection";
-import { Preloader } from "..";
+import useIntersection from "../../../data/hooks/useIntersection";
+import Preloader from "../Preloader/Preloader";
+// import s from "./Picture.module.scss";
 
 interface IPicture {
   src: string;
