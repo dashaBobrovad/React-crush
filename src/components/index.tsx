@@ -1,32 +1,28 @@
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 
 // ui
-import Error from "./ui/Error";
-import Button from "./ui/Button";
-import Modal from "./ui/Modal";
-import Icon from "./ui/Icon";
-import Navigation from "./ui/Navigation";
-import Picture from "./ui/Picture";
-import Preview from "./ui/Preview";
-import Preloader from "./ui/Preloader";
-import Header from "./ui/Header";
+import Error from "./ui/Error/Error";
+import Button from "./ui/Button/Button";
+import Icon from "./ui/Icon/Icon";
+import Navigation from "./ui/Navigation/Navigation";
+import Picture from "./ui/Picture/Picture";
+import Preview from "./ui/Preview/Preview";
+import Header from "./ui/Header/Header";
 
 // Product
-import ProductCard from "./Product/ProductCard";
-import ProductList from "./Product/ProductList";
-import ProductSeparated from "./Product/ProductSeparated";
+import ProductCard from "./Product/ProductCard/ProductCard";
+import ProductList from "./Product/ProductList/ProductList";
+import ProductSeparated from "./Product/ProductCard/ProductSeparated";
 
 export {
   ErrorBoundary,
   // ui
   Error,
   Button,
-  Modal,
   Icon,
   Navigation,
   Picture,
   Preview,
-  Preloader,
   Header,
   // Product
   ProductCard,

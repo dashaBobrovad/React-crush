@@ -1,7 +1,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import s from "../../assets/scss/components/ui/Preview.module.scss";
-import Icon from "./Icon";
+import s from "./Preview.module.scss";
+import Icon from "../Icon/Icon";
 
 function Preview() {
   return (

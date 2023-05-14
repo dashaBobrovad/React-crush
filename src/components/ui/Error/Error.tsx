@@ -1,3 +1,5 @@
+// import s from "./Error.module.scss";
+
 interface ErrorProps {
   error: string;
 }

@@ -1,3 +1,5 @@
+// import s from "./Counter.module.scss";
+
 export enum CounterSizeTypes {
   SM = "sm",
   MD = "md",

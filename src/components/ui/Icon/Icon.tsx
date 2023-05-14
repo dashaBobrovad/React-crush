@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+// import s from "./Icon.module.scss";
+// TODO:  use sprite вместо этого (+удалить либы)
 
 interface IIconProps {
   icon: IconProp;
