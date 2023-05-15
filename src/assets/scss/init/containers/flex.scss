@@ -1,0 +1,13 @@
+.flex{
+  display: flex;
+}
+
+.flex-row{
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-column{
+  flex-direction: column;
+  align-items: stretch;
+}

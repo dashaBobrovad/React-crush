@@ -1,4 +1,4 @@
-import { IProduct, IProductBasket } from "../../types/IProduct";
+import { IProduct } from "../../types/IProduct";
 import {
   IProductsState,
   ProductsActionTypes,
@@ -30,17 +30,18 @@ switch (action.type) {
   
   // ---------- ADD_PRODUCTS_TO_BASKET ----------
   case ProductsActionTypes.ADD_PRODUCTS_TO_BASKET:
-    if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id)) {
+    if (state.basket.list.find((product: IProduct) => product.id === action.payload.id)) {
       return {
         ...state,
         basket:
           {
             ...state.basket,
-            list: state.basket.list.map((item: IProductBasket) => item.id === action.payload.id
+            list: state.basket.list.map((item: IProduct) => item.id === action.payload.id
               ? {
                 ...item,
+                
                 qty: item.qty ? item.qty + 1 : 2,
-                sum: item.qty && item.sum ? item.sum * item.qty : item.price * 2
+                sum: item.qty && item.sum ? item.price *( item.qty+1 ): item.price * 2,
               }
               : item,
             ),
@@ -63,13 +64,13 @@ switch (action.type) {
     
     // ---------- DECREASE_PRODUCT_QTY_FROM_BASKET ----------
     case ProductsActionTypes.DECREASE_PRODUCT_QTY_FROM_BASKET:
-      if (state.basket.list.find((product: IProductBasket) => product.id === action.payload.id && product && product.qty && product.qty > 1)) {
+      if (state.basket.list.find((product: IProduct) => product.id === action.payload.id && product && product.qty && product.qty > 1)) {
         return {
           ...state,
           basket:
             {
               ...state.basket,
-              list: state.basket.list.map((item: IProductBasket) => item.id === action.payload.id
+              list: state.basket.list.map((item: IProduct) => item.id === action.payload.id
                 ? {
                   ...item,
                   qty: item.qty && item.qty - 1,

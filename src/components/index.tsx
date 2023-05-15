@@ -12,7 +12,8 @@ import Header from "./ui/Header/Header";
 // Product
 import ProductCard from "./Product/ProductCard/ProductCard";
 import ProductList from "./Product/ProductList/ProductList";
-import ProductSeparated from "./Product/ProductCard/ProductSeparated";
+import ProductCardSeparated from "./Product/ProductCard/ProductCardSeparated";
+import ProductCardBasket from "./Product/ProductCard/productCardBasket";
 
 export {
   ErrorBoundary,
@@ -27,6 +28,7 @@ export {
   // Product
   ProductCard,
   ProductList,
-  ProductSeparated // ui
+  ProductCardSeparated,
+  ProductCardBasket
   ,
 };

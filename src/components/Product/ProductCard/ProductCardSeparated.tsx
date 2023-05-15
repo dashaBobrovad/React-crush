@@ -3,14 +3,13 @@ import { IProduct } from "../../../types/IProduct";
 import { Icon, Picture } from "../../index";
 import s from "./Product.module.scss";
 
-interface IProductSeparatedProps {
+interface IProductCardSeparatedProps {
   product: IProduct;
 }
 
-// TODO: перенести в pRosuctCard (там есть спец модификатор )
 // const ChildComponent = React.memo(function ChildComponent({ count }) {
 // const Product = ({ product }: ProductProps) => {
-function ProductSeparated({ product }: IProductSeparatedProps) {
+function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
   return (
     <div className={`${s.product} ${s["product--separated"]}`}>
       <Picture src={product.image} parentClass={s.image} />
@@ -23,8 +22,7 @@ function ProductSeparated({ product }: IProductSeparatedProps) {
             {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
           </p>
           <p className={s.count}>
-            <span>{product.rating.count}</span>{" "}
-            <span>pieces</span>
+            <span>{product.rating.count}</span> <span>pieces</span>
           </p>
         </div>
       </div>
@@ -32,4 +30,4 @@ function ProductSeparated({ product }: IProductSeparatedProps) {
   );
 }
 
-export default ProductSeparated;
+export default ProductCardSeparated;
