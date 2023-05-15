@@ -23,7 +23,7 @@ function ProductCard({ product }: IProductCardProps) {
 
   return (
     <NavLink to={`/product/${product.id}`}>
-      <div className={s.product}>
+      <div className={`${s.product} flex flex-column`}>
         <Picture src={product.image} parentClass={s.image} />
         <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
         <p className={s.price}>{product.price.toFixed(2)} $</p>
