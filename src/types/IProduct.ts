@@ -13,6 +13,7 @@ export interface IProduct {
 
 export interface IProductBasket extends IProduct {
   qty?:number;
+  sum?:number;
 }
 
 export enum ProductType {

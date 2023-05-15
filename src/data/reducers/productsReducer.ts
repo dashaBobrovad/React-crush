@@ -40,6 +40,7 @@ switch (action.type) {
               ? {
                 ...item,
                 qty: item.qty ? item.qty + 1 : 2,
+                sum: item.qty && item.sum ? item.sum * item.qty : item.price * 2
               }
               : item,
             ),
@@ -54,7 +55,7 @@ switch (action.type) {
       basket:
       {
         ...state.basket,
-        list: [...state.basket.list, action.payload],
+        list: [...state.basket.list, Object.assign(action.payload, {sum: action.payload.price})],
         totalPrice: state.basket.totalPrice + action.payload.price,
         totalCount: state.basket.totalCount + 1,
       },
@@ -72,7 +73,7 @@ switch (action.type) {
                 ? {
                   ...item,
                   qty: item.qty && item.qty - 1,
-                  price: item.qty && item.price * item.qty || 0,
+                  sum: item.sum &&  item.sum - item.price
                 }
                 : item,
               ),
