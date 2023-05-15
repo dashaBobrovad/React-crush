@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { ProductSeparated } from "../components";
+import { ProductCardSeparated } from "../components";
 import useTypedSelector from "../data/hooks/useTypedSelector";
 import { IProduct } from "../types/IProduct";
 
@@ -16,7 +16,7 @@ function ProductPage() {
       {
         // отдельная карточка без кнопки перейти к товару
         productEl && (
-          <ProductSeparated product={productEl} key={productEl?.id} />
+          <ProductCardSeparated product={productEl} key={productEl?.id} />
         )
       }
       {!productEl && <div>Товар не найден</div>}

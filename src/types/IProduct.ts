@@ -9,14 +9,6 @@ export interface IProduct {
     rate: number;
     count: number;
   };
-}
-
-export interface IProductBasket extends IProduct {
   qty?:number;
   sum?:number;
-}
-
-export enum ProductType {
-  DEFAULT = "default",
-  BASKET = "basket",
 }

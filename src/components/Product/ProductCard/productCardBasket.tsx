@@ -5,7 +5,11 @@ import { IProduct } from "../../../types/IProduct";
 import { Button, Icon, Picture } from "../../index";
 import s from "./Product.module.scss";
 import useTypedDispatch from "../../../data/hooks/useTypedDispatch";
-import { addProductsToBasketAction } from "../../../data/reducers/productsReducer";
+import {
+  addProductsToBasketAction,
+  decreaseProductQtyFromBasketAction,
+  removeProductFromBasketAction,
+} from "../../../data/reducers/productsReducer";
 
 interface IProductCardProps {
   product: IProduct;
@@ -13,12 +17,22 @@ interface IProductCardProps {
 
 // const ChildComponent = React.memo(function ChildComponent({ count }) {
 // const Product = ({ product }: ProductProps) => {
-function ProductCard({ product }: IProductCardProps) {
+function ProductCardBasket({ product }: IProductCardProps) {
   const dispatch = useTypedDispatch();
 
   const addProductToBasket = (e: Event, productItem: IProduct) => {
     e.preventDefault();
     dispatch(addProductsToBasketAction(productItem));
+  };
+
+  const decreaseProductQtyFromBasket = (e: Event, productItem: IProduct) => {
+    e.preventDefault();
+    dispatch(decreaseProductQtyFromBasketAction(productItem));
+  };
+
+  const removeProductFromBasket = (e: Event, productItem: IProduct) => {
+    e.preventDefault();
+    dispatch(removeProductFromBasketAction(productItem));
   };
 
   return (
@@ -32,6 +46,13 @@ function ProductCard({ product }: IProductCardProps) {
           <p>
             {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
           </p>
+
+          <p className={s.count}>
+            <span>{product.qty || 1} pieces</span>
+          </p>
+          <p className={s.count}>
+            <span>you will pay {product.sum || 1} $</span>
+          </p>
         </div>
 
         <Button
@@ -40,9 +61,22 @@ function ProductCard({ product }: IProductCardProps) {
         >
           +
         </Button>
+
+        <Button
+          className={`button--gradient ${s.button}`}
+          onClick={(e: Event) => decreaseProductQtyFromBasket(e, product)}
+        >
+          -
+        </Button>
+        <Button
+          className={`button--gradient ${s.button}`}
+          onClick={(e: Event) => removeProductFromBasket(e, product)}
+        >
+          X
+        </Button>
       </div>
     </NavLink>
   );
 }
 
-export default ProductCard;
+export default ProductCardBasket;
