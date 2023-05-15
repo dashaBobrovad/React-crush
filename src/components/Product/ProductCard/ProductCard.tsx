@@ -45,9 +45,18 @@ function ProductCard({ product, type }: IProductCardProps) {
           <p>
             {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
           </p>
-          <p className={s.count}>
-            <span>{product.qty || 1} pieces</span>
-          </p>
+          { 
+            type === ProductType.BASKET && (
+              <>
+              <p className={s.count}>
+                <span>{product.qty || 1} pieces</span>
+              </p>
+              <p className={s.count}>
+                <span>you will pay {product.sum || 1} $</span>
+              </p>
+             </>
+              )
+          }
         </div>
 
         <Button
