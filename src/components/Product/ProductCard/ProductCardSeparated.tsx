@@ -11,7 +11,7 @@ interface IProductCardSeparatedProps {
 // const Product = ({ product }: ProductProps) => {
 function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
   return (
-    <div className={`${s.product} ${s["product--separated"]}`}>
+    <div className={`${s.product} ${s["product--separated"]} flex flex-column`}>
       <Picture src={product.image} parentClass={s.image} />
       <div className={s.content}>
         <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>

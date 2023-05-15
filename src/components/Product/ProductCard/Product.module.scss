@@ -4,8 +4,8 @@
   border-radius: $radius-m;
   background-color: $white;
   padding: $padding-m;
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   align-items: flex-start;
   border: 1px solid $blue;
   height: 100%;
@@ -67,8 +67,6 @@
   border-radius: 0;
   background-color: inherit;
   padding: 0;
-  display: flex;
-  flex-direction: row;
   align-items: flex-start;
   border: none;
 
@@ -85,6 +83,7 @@
   .content {
     display: flex;
     flex-direction: column;
+    width: 100%;
   }
 
   .info {
@@ -94,3 +93,44 @@
 
 
 }
+
+// product--basket (товар в корзине)
+.product--basket {
+
+  .characteristics{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .shop, .remove{
+    color: $grey;
+    font-size: $fontSize-s;
+  }
+
+  .image{
+    margin: 0;
+  }
+
+  .info{
+    margin: 0;
+  }
+
+  .counter{
+    background-color: $grey-light;
+    border-radius: $radius-m;
+    align-self: flex-end;
+    overflow: hidden;
+    padding: $padding-s;
+    &>*{
+      color: $black;
+      background-color: $grey-light;
+    }
+    button{
+      width: 20px;
+    }
+  }
+  
+}
+
