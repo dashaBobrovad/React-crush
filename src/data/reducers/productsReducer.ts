@@ -72,6 +72,7 @@ switch (action.type) {
                 ? {
                   ...item,
                   qty: item.qty && item.qty - 1,
+                  price: item.qty && item.price * item.qty || 0,
                 }
                 : item,
               ),
