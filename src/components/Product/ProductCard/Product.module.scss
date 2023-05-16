@@ -117,18 +117,38 @@
     margin: 0;
   }
 
+  // TODO: сделать, как на яндекс маркете + блокировка на 1
   .counter{
     background-color: $grey-light;
     border-radius: $radius-m;
-    align-self: flex-end;
     overflow: hidden;
-    padding: $padding-s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 100px;
+    height: 32px;
+    padding: $paragraphMb-s;
+    box-sizing: border-box;
+    align-self: flex-end;
     &>*{
-      color: $black;
-      background-color: $grey-light;
+      background-color: inherit;
     }
     button{
-      width: 20px;
+      flex-grow: 1;
+      font-size: 20px;
+    }
+  }
+
+  .footer{
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .sum{
+    span{
+      color: $blue;
+      font-weight: bold;
+      font-style: italic;
     }
   }
   
