@@ -20,17 +20,36 @@ interface IProductCardProps {
 function ProductCardBasket({ product }: IProductCardProps) {
   const dispatch = useTypedDispatch();
 
-  const addProductToBasket = (e: React.MouseEvent<Element, MouseEvent>, productItem: IProduct) => {
+  const [isRemoveDisabled, setIsRemoveDisabled] = React.useState(false);
+
+  const addProductToBasket = (
+    e: React.MouseEvent<Element, MouseEvent>,
+    productItem: IProduct
+  ) => {
     e.preventDefault();
     dispatch(addProductsToBasketAction(productItem));
   };
 
-  const decreaseProductQtyFromBasket = (e: React.MouseEvent<Element, MouseEvent>, productItem: IProduct) => {
+  const decreaseProductQtyFromBasket = (
+    e: React.MouseEvent<Element, MouseEvent>,
+    productItem: IProduct
+  ) => {
     e.preventDefault();
     dispatch(decreaseProductQtyFromBasketAction(productItem));
   };
 
-  const removeProductFromBasket = (e: React.MouseEvent<Element, MouseEvent>, productItem: IProduct) => {
+  React.useEffect(() => {
+    if (product.qty === 1) {
+      setIsRemoveDisabled(true);
+    } else {
+      setIsRemoveDisabled(false);
+    }
+  }, [product.qty]);
+
+  const removeProductFromBasket = (
+    e: React.MouseEvent<Element, MouseEvent>,
+    productItem: IProduct
+  ) => {
     e.preventDefault();
     dispatch(removeProductFromBasketAction(productItem));
   };
@@ -43,30 +62,47 @@ function ProductCardBasket({ product }: IProductCardProps) {
           <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
           <p className={s.shop}>Super Duper Shop</p>
 
-          <button type="button" className={s.remove}
-            onClick={(e: React.MouseEvent<Element, MouseEvent>) => removeProductFromBasket(e, product)}>
-              X Remove
+          <button
+            type="button"
+            className={s.remove}
+            onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+              removeProductFromBasket(e, product)
+            }
+          >
+            X Remove
           </button>
-          
 
-          <div className={s.counter}>
-          <button type="button" className={s.remove}
-           onClick={(e: React.MouseEvent<Element, MouseEvent>) => addProductToBasket(e, product)}>
-              +
-          </button>
-          <span>{product.qty || 1}</span>
-          <button type="button" className={s.remove}
-           onClick={(e: React.MouseEvent<Element, MouseEvent>) => decreaseProductQtyFromBasket(e, product)}>
-              -
-          </button>
+          <div className={`flex flex-row ${s.footer}`}>
+            <p className={s.sum}>
+              you will pay <span>{product.sum || 1} $</span>
+            </p>
+
+            <div className={s.counter}>
+              <button
+                type="button"
+                className={`${s.remove} ${isRemoveDisabled ? "disabled" : ""}`}
+                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+                  decreaseProductQtyFromBasket(e, product)
+                }
+              >
+                -
+              </button>
+              <span>{product.qty || 1}</span>
+              <button
+                type="button"
+                className={s.remove}
+                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+                  addProductToBasket(e, product)
+                }
+              >
+                +
+              </button>
+            </div>
           </div>
-
-
 
           {false && (
             <>
               <div className={s.info}>
-                
                 <p>
                   {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
                 </p>
@@ -81,28 +117,31 @@ function ProductCardBasket({ product }: IProductCardProps) {
 
               <Button
                 className={`button--gradient ${s.button}`}
-                onClick={(e: React.MouseEvent<Element, MouseEvent>) => addProductToBasket(e, product)}
+                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+                  addProductToBasket(e, product)
+                }
               >
                 +
               </Button>
 
               <Button
                 className={`button--gradient ${s.button}`}
-                onClick={(e: React.MouseEvent<Element, MouseEvent>) => decreaseProductQtyFromBasket(e, product)}
+                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+                  decreaseProductQtyFromBasket(e, product)
+                }
               >
                 -
               </Button>
               <Button
                 className={`button--gradient ${s.button}`}
-                onClick={(e: React.MouseEvent<Element, MouseEvent>) => removeProductFromBasket(e, product)}
+                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
+                  removeProductFromBasket(e, product)
+                }
               >
                 X
               </Button>
             </>
-          )
-          }
-
-
+          )}
         </div>
       </div>
     </NavLink>
