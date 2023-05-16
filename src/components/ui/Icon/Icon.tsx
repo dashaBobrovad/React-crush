@@ -1,19 +1,22 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-// import s from "./Icon.module.scss";
-// TODO:  use sprite вместо этого (+удалить либы)
+import s from "./Icon.module.scss";
 
 interface IIconProps {
-  icon: IconProp;
-  // All other props
-  [x: string]: any;
+  classNames?: string;
+  icon: string;
+  color?: string
 }
 
-function Icon(props: IIconProps) {
-  const { icon, ...rest } = props;
-
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  return <FontAwesomeIcon icon={icon} {...rest} />;
+function Icon({ classNames, icon, color }: IIconProps) {
+  return (
+    <svg className={`${s.icon} ${s[`icon-${icon}`]} ${s[`icon-${color}`]} ${classNames}`} role="img">
+      <use xlinkHref={`#${icon}`} />
+    </svg>
+  );
 }
+
+Icon.defaultProps = {
+  classNames: "",
+  color: "black",
+};
 
 export default Icon;

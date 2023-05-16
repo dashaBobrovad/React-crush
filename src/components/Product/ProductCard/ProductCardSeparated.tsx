@@ -1,4 +1,3 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { IProduct } from "../../../types/IProduct";
 import { Icon, Picture } from "../../index";
 import s from "./Product.module.scss";
@@ -19,7 +18,7 @@ function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
         <p className={s.category}>{product.category}</p>
         <div className={s.info}>
           <p className={s.rate}>
-            {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
+            {product.rating.rate.toFixed(1)} <Icon icon="star" color="white"/>
           </p>
           <p className={s.count}>
             <span>{product.rating.count}</span> <span>pieces</span>

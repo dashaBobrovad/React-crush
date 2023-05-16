@@ -69,7 +69,9 @@
         "no-shadow": "off",
         "@typescript-eslint/no-shadow": "off" ,
         
-        "@typescript-eslint/no-unused-vars": "error"
+        "@typescript-eslint/no-unused-vars": "error",
+
+        
     },
     "settings": {
         "import/resolver": {

@@ -1,5 +1,4 @@
 import React from "react";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { IProduct } from "../../../types/IProduct";
 import { Button, Icon, Picture } from "../../index";
@@ -30,7 +29,7 @@ function ProductCard({ product }: IProductCardProps) {
         <p className={s.category}>{product.category}</p>
         <div className={s.info}>
           <p>
-            {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
+            {product.rating.rate.toFixed(1)} <Icon icon="star" color="white"/>
           </p>
         </div>
 
