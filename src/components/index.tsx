@@ -8,6 +8,7 @@ import Navigation from "./ui/Navigation/Navigation";
 import Picture from "./ui/Picture/Picture";
 import Preview from "./ui/Preview/Preview";
 import Header from "./ui/Header/Header";
+import Sprite from "./ui/Sprite";
 
 // Product
 import ProductCard from "./Product/ProductCard/ProductCard";
@@ -25,6 +26,7 @@ export {
   Picture,
   Preview,
   Header,
+  Sprite,
   // Product
   ProductCard,
   ProductList,
