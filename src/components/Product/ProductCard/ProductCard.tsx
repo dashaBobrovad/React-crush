@@ -18,6 +18,7 @@ function ProductCard({ product }: IProductCardProps) {
   const dispatch = useTypedDispatch();
 
   const addProductToBasket = (e: Event, productItem: IProduct) => {
+    // TODO: link?
     e.preventDefault();
     dispatch(addProductsToBasketAction(productItem));
   };
@@ -39,7 +40,7 @@ function ProductCard({ product }: IProductCardProps) {
         <div className={s.note}>no more than  {product.rating.count} pieces</div>
 
         <Button
-          className={`button--gradient ${s.button}`}
+          className={`button_gradient ${s.button}`}
           onClick={(e: Event) => addProductToBasket(e, product)}
         >
           +

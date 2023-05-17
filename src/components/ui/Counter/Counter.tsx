@@ -12,7 +12,7 @@ interface CounterProps {
 }
 
 function Counter({ count, size}: CounterProps) {
-  return <div className={`counter counter--${size}`}>{count}</div>;
+  return <div className={`counter counter_${size}`}>{count}</div>;
 }
 
 export default Counter;
