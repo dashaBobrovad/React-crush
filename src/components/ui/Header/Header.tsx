@@ -1,11 +1,10 @@
-import { faBasketShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { shallowEqual } from "react-redux";
 import s from "./Header.module.scss";
-import Icon from "../Icon/Icon";
 import Navigation from "../Navigation/Navigation";
 import Counter, { CounterSizeTypes } from "../Counter/Counter";
 import useTypedSelector from "../../../data/hooks/useTypedSelector";
+import Icon from "../Icon/Icon";
 
 function Header() {
   // shallowEquals имеет смысл, когда вы выбираете объект, который может быть похож по содержимому, но отличается по ссылке (object)
@@ -21,7 +20,7 @@ function Header() {
             {
               totalCount !== 0 && <Counter count={totalCount} size={CounterSizeTypes.SM}/>
             }
-            <Icon icon={faBasketShopping} />
+            <Icon icon="basket" color="white"/>
           </div>
         </Link>
       </div>

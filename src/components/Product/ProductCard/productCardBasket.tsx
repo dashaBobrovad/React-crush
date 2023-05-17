@@ -1,8 +1,6 @@
 import React from "react";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 import { IProduct } from "../../../types/IProduct";
-import { Button, Icon, Picture } from "../../index";
 import s from "./Product.module.scss";
 import useTypedDispatch from "../../../data/hooks/useTypedDispatch";
 import {
@@ -10,6 +8,7 @@ import {
   decreaseProductQtyFromBasketAction,
   removeProductFromBasketAction,
 } from "../../../data/reducers/productsReducer";
+import Picture from "../../ui/Picture/Picture";
 
 interface IProductCardProps {
   product: IProduct;
@@ -99,49 +98,6 @@ function ProductCardBasket({ product }: IProductCardProps) {
               </button>
             </div>
           </div>
-
-          {false && (
-            <>
-              <div className={s.info}>
-                <p>
-                  {product.rating.rate.toFixed(1)} <Icon icon={faStar} />
-                </p>
-
-                <p className={s.count}>
-                  <span>{product.qty || 1} pieces</span>
-                </p>
-                <p className={s.count}>
-                  <span>you will pay {product.sum || 1} $</span>
-                </p>
-              </div>
-
-              <Button
-                className={`button--gradient ${s.button}`}
-                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
-                  addProductToBasket(e, product)
-                }
-              >
-                +
-              </Button>
-
-              <Button
-                className={`button--gradient ${s.button}`}
-                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
-                  decreaseProductQtyFromBasket(e, product)
-                }
-              >
-                -
-              </Button>
-              <Button
-                className={`button--gradient ${s.button}`}
-                onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
-                  removeProductFromBasket(e, product)
-                }
-              >
-                X
-              </Button>
-            </>
-          )}
         </div>
       </div>
     </NavLink>
