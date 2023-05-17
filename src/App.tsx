@@ -3,7 +3,6 @@ import { Header, Sprite } from "./components";
 import { ProductsPage, BasketPage, ProductPage } from "./pages";
 
 // TODO: инфа на отдельной странице с товаром
-// TODO: оптимизировать логику с локальным хранилищем (если уже есть - не отправляем запрос)
 // TODO: refact ts (remove any}
 // TODO: classnames (достать функцией)
 // TODO: "уверены, что хотите удалить?" попап ?
