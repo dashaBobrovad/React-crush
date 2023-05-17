@@ -1,5 +1,5 @@
 import { IProduct } from "../../../types/IProduct";
-import { Icon, Picture } from "../../index";
+import { /* Icon, */ Picture } from "../../index";
 import s from "./Product.module.scss";
 
 interface IProductCardSeparatedProps {
@@ -18,7 +18,8 @@ function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
         <p className={s.category}>{product.category}</p>
         <div className={s.info}>
           <p className={s.rate}>
-            {product.rating.rate.toFixed(1)} <Icon icon="star" color="white"/>
+            {/* {product.rating.rate.toFixed(1)} <Icon icon="star" color="white"/> */}
+            info
           </p>
           <p className={s.count}>
             <span>{product.rating.count}</span> <span>pieces</span>
