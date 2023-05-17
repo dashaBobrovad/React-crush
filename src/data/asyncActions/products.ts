@@ -11,7 +11,7 @@ const fetchProducts = () => async (dispatch: Dispatch<ProductsAction>) => {
     .then (d => d.json ())
     .then (d => fetch (`${path}/git/blobs/${d.sha}`))
     .then (d => d.json())
-    .then (d => dispatch(getProductsAction(JSON.parse(atob (d.content)))))
+    .then (d => dispatch(getProductsAction(JSON.parse(window.atob (d.content)))))
     .catch((e: unknown) => {
       const error = e as Error;
       console.error(new Error("error", error));

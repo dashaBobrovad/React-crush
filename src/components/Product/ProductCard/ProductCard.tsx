@@ -13,6 +13,8 @@ interface IProductCardProps {
 // const ChildComponent = React.memo(function ChildComponent({ count }) {
 // const Product = ({ product }: ProductProps) => {
 function ProductCard({ product }: IProductCardProps) {
+  // const rating  = product.rating.rate.toFixed(1); 
+
   const dispatch = useTypedDispatch();
 
   const addProductToBasket = (e: Event, productItem: IProduct) => {
@@ -29,7 +31,7 @@ function ProductCard({ product }: IProductCardProps) {
         <p className={s.category}>{product.category}</p>
         {/* <div className={s.info}>
           <p>
-            {product.rating.rate.toFixed(1)} <Icon icon="star" color="white"/>
+            {rating} <Icon icon="star" color="white"/>
             info
           </p>
         </div> */}

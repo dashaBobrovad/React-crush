@@ -8,7 +8,10 @@ interface IProductCardSeparatedProps {
 
 // const ChildComponent = React.memo(function ChildComponent({ count }) {
 // const Product = ({ product }: ProductProps) => {
+  
 function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
+  // const rating  = product.rating.rate.toFixed(1); 
+
   return (
     <div className={`${s.product} ${s["product--separated"]} flex flex-column`}>
       <Picture src={product.image} parentClass={s.image} />
@@ -18,7 +21,7 @@ function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
         <p className={s.category}>{product.category}</p>
         <div className={s.info}>
           <p className={s.rate}>
-            {/* {product.rating.rate.toFixed(1)} <Icon icon="star" color="white"/> */}
+            {/* {rating} <Icon icon="star" color="white"/> */}
             info
           </p>
           <p className={s.count}>
