@@ -4,8 +4,6 @@
   border-radius: $radius-m;
   background-color: $white;
   padding: $padding-m;
-  // display: flex;
-  // flex-direction: column;
   align-items: flex-start;
   border: 1px solid $blue;
   height: 100%;
@@ -96,7 +94,7 @@
 
 // product--basket (товар в корзине)
 .product--basket {
-
+z-index: 1;
   .characteristics{
     flex-grow: 1;
     display: flex;
@@ -117,7 +115,6 @@
     margin: 0;
   }
 
-  // TODO: сделать, как на яндекс маркете + блокировка на 1
   .counter{
     background-color: $grey-light;
     border-radius: $radius-m;
@@ -130,6 +127,7 @@
     padding: $paragraphMb-s;
     box-sizing: border-box;
     align-self: flex-end;
+    
     &>*{
       background-color: inherit;
     }
@@ -154,3 +152,9 @@
   
 }
 
+// TODO: вынести в components/ui
+.note{
+  color: $grey;
+  font-size: $fontSize-s;
+  margin-bottom: $margin-xs;
+}

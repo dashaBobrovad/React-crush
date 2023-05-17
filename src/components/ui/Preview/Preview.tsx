@@ -16,7 +16,7 @@ function Preview() {
 
           <Link to="/basket" className={s.link}>
             <span>Перейти в корзину</span>
-            <Icon icon="rightArrow" classNames={s.linkArrow} color="white" />
+            <Icon icon="rightArrow" color="white" />
           </Link>
         </div>
       </div>
