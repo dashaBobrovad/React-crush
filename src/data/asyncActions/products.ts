@@ -1,20 +1,23 @@
-import axios, { AxiosError } from "axios";
 import { Dispatch } from "redux";
 import { ProductsAction } from "../../types/productsReducerTypes";
 import { getProductsAction } from "../reducers/productsReducer";
 import dataMocks from "../mocks";
 
+const path = "https://api.github.com/repos/dashaBobrovad/React-crush";
+
+// TODO: если понадобится повторно, вынести в отдельную функцию
 const fetchProducts = () => async (dispatch: Dispatch<ProductsAction>) => {
-  axios
-    .get("http://localhost:3000/db/data.json")
-    .then((response) => {
-      dispatch(getProductsAction(response.data));
-    })
+  await fetch (`${path}/contents/public/db/data.json`)
+    .then (d => d.json ())
+    .then (d => fetch (`${path}/git/blobs/${d.sha}`))
+    .then (d => d.json())
+    .then (d => dispatch(getProductsAction(JSON.parse(atob (d.content)))))
     .catch((e: unknown) => {
-      const error = e as AxiosError;
+      const error = e as Error;
       console.error(new Error("error", error));
       dispatch(getProductsAction(dataMocks));
-    });
+    }
+  );
 };
 
 export default fetchProducts;
