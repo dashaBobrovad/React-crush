@@ -1,4 +1,4 @@
-@import '../../../assets/scss/init/vars';
+@import "../../../assets/scss/init/vars";
 
 .preview {
   height: 600px;
@@ -16,37 +16,77 @@
   font-size: 46px;
   line-height: 120%;
   display: block;
+  margin-bottom: $margin-l;
 }
 
 .link {
-  font-size: $fontSize-m;
   align-self: flex-end;
+  position: relative;
+  padding: 19px 22px;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 28px;
+    opacity: 0.5;
+    background: $blue-dark;
+    width: 56px;
+    height: 56px;
+    transition: all 0.3s ease;
+  }
 
-  &:hover .linkArrow {
-    animation: arrow-hover 1s linear;
+  &:hover {
+    &:before {
+      width: 100%;
+      opacity: 1;
+      background: $linerGradient;
+    }
+      svg {
+        transform: translateX(0);
+      }
+    
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  span {
+    position: relative;
+    font-size: $fontSize-m;
+    font-weight: bold;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+
+  svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
   }
 }
 
-.linkArrow {
-  margin-left: 10px;
-}
 
 
-@keyframes arrow-hover {
-  0% {
-    transform: translateX(0);
-  }
+// @keyframes arrow-hover {
+//   0% {
+//     transform: translateX(0);
+//   }
 
-  50% {
-    transform: translateX(5px);
-  }
+//   50% {
+//     transform: translateX(5px);
+//   }
 
-  100% {
-    transform: translateX(0);
-  }
+//   100% {
+//     transform: translateX(0);
+//   }
 
-
-}
+// }

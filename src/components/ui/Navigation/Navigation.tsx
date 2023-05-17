@@ -14,16 +14,6 @@ function Navigation() {
       >
         Main
       </NavLink>
-      <NavLink
-        to="/test"
-        className={({ isActive }) =>
-          isActive
-            ? `${s.item} ${s.active}`
-            : s.item
-        }
-      >
-        Test Page (polygon)
-      </NavLink>
     </nav>
   );
 }

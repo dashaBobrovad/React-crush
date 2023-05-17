@@ -19,7 +19,7 @@ interface IProductCardProps {
 function ProductCardBasket({ product }: IProductCardProps) {
   const dispatch = useTypedDispatch();
 
-  const [isRemoveDisabled, setIsRemoveDisabled] = React.useState(false);
+  const [isRemoveDisabled, setIsRemoveDisabled] = React.useState(true);
 
   const addProductToBasket = (
     e: React.MouseEvent<Element, MouseEvent>,
@@ -34,11 +34,15 @@ function ProductCardBasket({ product }: IProductCardProps) {
     productItem: IProduct
   ) => {
     e.preventDefault();
+    if (product.qty === 1 || product.qty === undefined) {
+      return;
+    }
+
     dispatch(decreaseProductQtyFromBasketAction(productItem));
   };
 
   React.useEffect(() => {
-    if (product.qty === 1) {
+    if (product.qty === 1 || product.qty === undefined) {
       setIsRemoveDisabled(true);
     } else {
       setIsRemoveDisabled(false);
@@ -54,8 +58,7 @@ function ProductCardBasket({ product }: IProductCardProps) {
   };
 
   return (
-    <NavLink to={`/product/${product.id}`}>
-      <div className={`${s.product} ${s["product--basket"]} flex flex-row`}>
+    <NavLink to={`/product/${product.id}`} className={`${s.product} ${s["product--basket"]} flex flex-row`}>
         <Picture src={product.image} parentClass={s.image} />
         <div className={s.characteristics}>
           <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
@@ -99,7 +102,6 @@ function ProductCardBasket({ product }: IProductCardProps) {
             </div>
           </div>
         </div>
-      </div>
     </NavLink>
   );
 }
