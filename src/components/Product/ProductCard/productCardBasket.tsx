@@ -25,6 +25,7 @@ function ProductCardBasket({ product }: IProductCardProps) {
     e: React.MouseEvent<Element, MouseEvent>,
     productItem: IProduct
   ) => {
+    // TODO: link?
     e.preventDefault();
     dispatch(addProductsToBasketAction(productItem));
   };
@@ -33,6 +34,7 @@ function ProductCardBasket({ product }: IProductCardProps) {
     e: React.MouseEvent<Element, MouseEvent>,
     productItem: IProduct
   ) => {
+    // TODO: link?
     e.preventDefault();
     if (product.qty === 1 || product.qty === undefined) {
       return;
@@ -53,12 +55,13 @@ function ProductCardBasket({ product }: IProductCardProps) {
     e: React.MouseEvent<Element, MouseEvent>,
     productItem: IProduct
   ) => {
+    // TODO: link?
     e.preventDefault();
     dispatch(removeProductFromBasketAction(productItem));
   };
 
   return (
-    <NavLink to={`/product/${product.id}`} className={`${s.product} ${s["product--basket"]} flex flex-row`}>
+    <NavLink to={`/product/${product.id}`} className={`${s.product} ${s.product_basket} flex flex-row`}>
         <Picture src={product.image} parentClass={s.image} />
         <div className={s.characteristics}>
           <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>

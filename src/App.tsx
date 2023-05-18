@@ -1,6 +1,7 @@
-import { Route, Routes } from "react-router-dom";
-import { Header, Sprite } from "./components";
-import { ProductsPage, BasketPage, ProductPage } from "./pages";
+
+import { Header, Routing, Sprite } from "./components";
+
+// TODO: пересчитывать оставшееся кол-во
 
 // TODO: завести поле кол-ва на складе (если закончится - дизейблить)
 
@@ -14,7 +15,7 @@ import { ProductsPage, BasketPage, ProductPage } from "./pages";
 
 // TODO: "уверены, что хотите удалить?" попап ?
 
-// TODO: 404 page 
+// TODO: 404 page css
 
 // TODO: fav
 // TODO: рейтинг
@@ -39,10 +40,7 @@ import { ProductsPage, BasketPage, ProductPage } from "./pages";
 // 
 
 // REFACTOR
-// вынести роутинг отдельно
 // lazy loading на всю карточку, чтобы повысить LCP
-// какой-то заполнитель для главной, пока данные не пришли - иначе скачет CLS сильно :(
-// когда картинка грузится - не показывать серый фон - только разводы
 
 // ПРИКОЛЫ
 // добавить категории (они приходят) - типа как на ВБ 9меню слева)
@@ -62,17 +60,12 @@ import { ProductsPage, BasketPage, ProductPage } from "./pages";
 function App() {
   return (
     <div className="site">
-
-      {/* TODO: maybe use without component */}
+      {/* TODO: maybe use sprite without component */}
       <Sprite />
 
       <div className="site_content">
         <Header />
-        <Routes>
-          <Route path="/" element={<ProductsPage />} />
-          <Route path="/basket" element={<BasketPage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-        </Routes>
+        <Routing />
       </div>
 
       <div className="footer">

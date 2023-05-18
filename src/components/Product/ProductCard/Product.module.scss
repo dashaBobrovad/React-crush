@@ -59,8 +59,8 @@
   .product {}
 }
 
-// product--separated (товар на отдельной странице)
-.product--separated {
+// product_separated (товар на отдельной странице)
+.product_separated {
   background-color: rgb(226, 226, 185);
   border-radius: 0;
   background-color: inherit;
@@ -92,8 +92,8 @@
 
 }
 
-// product--basket (товар в корзине)
-.product--basket {
+// product_basket (товар в корзине)
+.product_basket {
 z-index: 1;
   .characteristics{
     flex-grow: 1;
