@@ -17,6 +17,8 @@ function ProductCard({ product }: IProductCardProps) {
 
   const dispatch = useTypedDispatch();
 
+  const price = product.price.toFixed(2);
+
   const addProductToBasket = (e: Event, productItem: IProduct) => {
     // TODO: link?
     e.preventDefault();
@@ -28,7 +30,7 @@ function ProductCard({ product }: IProductCardProps) {
       <div className={`${s.product} flex flex-column`}>
         <Picture src={product.image} parentClass={s.image} />
         <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
-        <p className={s.price}>{product.price.toFixed(2)} $</p>
+        <p className={s.price}>{price} $</p>
         <p className={s.category}>{product.category}</p>
         {/* <div className={s.info}>
           <p>
@@ -39,12 +41,13 @@ function ProductCard({ product }: IProductCardProps) {
 
         <div className={s.note}>no more than  {product.rating.count} pieces</div>
 
-        <Button
-          className={`button_gradient ${s.button}`}
-          onClick={(e: Event) => addProductToBasket(e, product)}
-        >
-          +
-        </Button>
+<Button
+    className={`button_gradient ${s.button}`}
+    onClick={(e: Event) => addProductToBasket(e, product)}
+  >
+    +
+  </Button>
+      
       </div>
     </NavLink>
   );
