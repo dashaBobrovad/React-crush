@@ -8,10 +8,7 @@ interface ButtonProps {
 }
 
 function Button({ children, className = "", ...rest }: ButtonProps) {
-  // вынести button в глобальные стили
   return (
-    // TODO: избавиться от eslint-disable-next-line
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <button type="button" className={`button ${className}`} {...rest}>
       {children}
     </button>

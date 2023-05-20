@@ -7,11 +7,7 @@
   font-size: $fontSize-xs;
   font-weight: bold;
   border: 2px solid $black;
-}
-
-.counter_sm{
   --size: 20px;
   width: var(--size);
   height: var(--size);
 }
-

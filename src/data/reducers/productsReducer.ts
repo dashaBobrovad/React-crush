@@ -88,7 +88,15 @@ switch (action.type) {
               ),
               totalPrice: state.basket.totalPrice - action.payload.price,
               totalCount: state.basket.totalCount - 1,
-            }
+            },
+            products: 
+            state.products.map((item: IProduct) => item.id === action.payload.id
+              ? {
+                ...item,
+                rating: Object.assign(item.rating, {count: item.rating.count + 1})
+              }
+              : item,
+            ),
         };
       }
 

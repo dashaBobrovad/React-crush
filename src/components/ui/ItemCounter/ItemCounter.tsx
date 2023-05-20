@@ -22,6 +22,11 @@ function ItemCounter({ productItem }: ItemCounterProps) {
     ) => {
         // TODO: link?
         e.preventDefault();
+
+        if (productItem.qty === productItem.rating.count) {
+            return;
+        }
+
         dispatch(addProductsToBasketAction(productItem));
     };
 
