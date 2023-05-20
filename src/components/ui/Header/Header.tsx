@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { shallowEqual } from "react-redux";
 import s from "./Header.module.scss";
 import Navigation from "../Navigation/Navigation";
-import Counter, { CounterSizeTypes } from "../Counter/Counter";
+import {BasketCounter} from "../..";
+import { BasketCounterSizeTypes } from "../BasketCounter/BasketCounter";
 import useTypedSelector from "../../../data/hooks/useTypedSelector";
 import Icon from "../Icon/Icon";
 
@@ -18,7 +19,7 @@ function Header() {
           {" "}
           <div className={s.basket}>
             {
-              totalCount !== 0 && <Counter count={totalCount} size={CounterSizeTypes.SM}/>
+              totalCount !== 0 && <BasketCounter count={totalCount} size={BasketCounterSizeTypes.SM}/>
             }
             <Icon icon="basket" color="white"/>
           </div>
