@@ -28,14 +28,13 @@ function ProductCard({ product }: IProductCardProps) {
   const addProductToBasket = (e: Event, productItem: IProduct) => {
     // TODO: link?
     e.preventDefault();
-
     dispatch(addProductsToBasketAction(productItem));
   };
 
   return (
     <NavLink to={`/product/${product.id}`}>
       <div className={`${s.product} flex flex-column`}>
-        <Picture src={product.image} parentClass={s.image} />
+        <Picture src={product.image} parentClass={s.image} alt={product.title}/>
         <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
         <p className={s.price}>{price} $</p>
         <p className={s.category}>{product.category}</p>

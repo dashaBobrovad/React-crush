@@ -11,12 +11,11 @@
     height: 32px;
     padding: $paragraphMb-s;
     box-sizing: border-box;
-    align-self: flex-end;
     
     &>*{
       background-color: inherit;
     }
-    
+
     button{
       flex-grow: 1;
       font-size: 20px;

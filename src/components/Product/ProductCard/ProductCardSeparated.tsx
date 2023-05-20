@@ -14,7 +14,7 @@ function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
 
   return (
     <div className={`${s.product} ${s.product_separated} flex flex-column`}>
-      <Picture src={product.image} parentClass={s.image} />
+      <Picture src={product.image} parentClass={s.image} alt={product.title}/>
       <div className={s.content}>
         <h2 className={`${s.title} ellipsis-2`}>{product.title}</h2>
         <p className={s.price}>{product.price.toFixed(2)} $</p>
