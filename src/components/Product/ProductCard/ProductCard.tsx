@@ -56,4 +56,4 @@ function ProductCard({ product }: IProductCardProps) {
   );
 }
 
-export default ProductCard;
+export default React.memo(ProductCard);
