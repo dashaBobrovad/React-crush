@@ -10,6 +10,8 @@ import Preview from "./ui/Preview/Preview";
 import Header from "./ui/Header/Header";
 import Sprite from "./ui/Sprite";
 import Routing from "./ui/Routing";
+import ItemCounter from "./ui/ItemCounter/ItemCounter";
+import BasketCounter from "./ui/BasketCounter/BasketCounter";
 
 // Product
 import ProductCard from "./Product/ProductCard/ProductCard";
@@ -28,6 +30,8 @@ export {
   Picture,
   Preview,
   Header,
+  ItemCounter,
+  BasketCounter,
   Sprite,
   Routing,
   // Product

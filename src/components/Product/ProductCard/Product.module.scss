@@ -115,28 +115,6 @@ z-index: 1;
     margin: 0;
   }
 
-  .counter{
-    background-color: $grey-light;
-    border-radius: $radius-m;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 100px;
-    height: 32px;
-    padding: $paragraphMb-s;
-    box-sizing: border-box;
-    align-self: flex-end;
-    
-    &>*{
-      background-color: inherit;
-    }
-    button{
-      flex-grow: 1;
-      font-size: 20px;
-    }
-  }
-
   .footer{
     width: 100%;
     justify-content: space-between;
@@ -152,7 +130,6 @@ z-index: 1;
   
 }
 
-// TODO: вынести в components/ui
 .note{
   color: $grey;
   font-size: $fontSize-s;

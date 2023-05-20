@@ -6,9 +6,10 @@ import Preloader from "../Preloader/Preloader";
 interface IPicture {
   src: string;
   parentClass: string;
+  alt?: string;
 }
 
-function Picture({ src, parentClass }: IPicture) {
+function Picture({ src, parentClass, alt }: IPicture) {
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
@@ -28,17 +29,17 @@ function Picture({ src, parentClass }: IPicture) {
         isLoaded ? "noPlaceholder" : ""
       }`}
       ref={imgRef}
-      // style={{
-      //   paddingBottom: `${(height / width) * 100}%`,
-      // }}
     >
       {!isLoaded && <Preloader />}
-      {/* TODO: передавать правильный alt */}
       {isInView && (
-        <img className="picture_image" src={src} onLoad={onLoad} alt={src} />
+        <img className="picture_image" src={src} onLoad={onLoad} alt={alt} />
       )}
     </div>
   );
 }
+
+Picture.defaultProps = {
+  alt: "image",
+};
 
 export default Picture;
