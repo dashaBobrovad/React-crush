@@ -42,7 +42,7 @@ function ProductCard({ product }: IProductCardProps) {
         <div className={s.note}>no more than  {product.rating.count} pieces</div>
 
         {
-          productInBasket ? (<ItemCounter productItem={productInBasket}/>) : (<Button
+          productInBasket ? (<ItemCounter productItem={productInBasket} ratingCount={productInBasket.rating.count}/>) : (<Button
             className={`button_gradient ${s.button}`}
             onClick={(e: Event) => addProductToBasket(e, product)}
           >
