@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Preview, ProductList } from "../components";
 import fetchProducts from "../data/asyncActions/products";
 import useTypedDispatch from "../data/hooks/useTypedDispatch";
@@ -8,6 +8,7 @@ import { getProductsAction } from "../data/reducers/productsReducer";
 function ProductsPage() {
   const dispatch = useTypedDispatch();
   const reduxProducts = useTypedSelector((state) => state.products.products);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     // TODO: + проверка с отключенным LS; нужно ли здесь это из локального достается итак (?)
@@ -16,10 +17,13 @@ function ProductsPage() {
         getProductsAction(
           JSON.parse(localStorage?.getItem("persistantState") as string).products.products
         )
+        
       );
     } else {
       dispatch(fetchProducts());
+      
     }
+    setIsLoaded(true);
   }, []);
 
   return (
@@ -29,7 +33,7 @@ function ProductsPage() {
       }
 
       <div className="column">
-        <ProductList products={reduxProducts} />
+        <ProductList products={reduxProducts} isLoaded={isLoaded}/>
       </div>
     </>
   );

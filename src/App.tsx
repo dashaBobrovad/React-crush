@@ -1,6 +1,13 @@
 
 import { Header, Routing, Sprite } from "./components";
 
+// TODO: заглушки для карточек во время загрузки
+  // главная
+  // отдельно
+  // в корзине
+
+// TODO: уменьшить шапку 
+
 // TODO: перерисовки
 
 // TODO: HOC
@@ -15,8 +22,9 @@ import { Header, Routing, Sprite } from "./components";
 // TODO: 404 page css
 
 // TODO: fav
+
 // TODO: рейтинг
-// TODO: заглушки для карточек во время загрузки
+
 // TODO: уменьшить картинки (те, что приходят с бэка) + add webp 
 
 // TODO: авторизация (на моках?); 
