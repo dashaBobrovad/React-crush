@@ -42,7 +42,7 @@ function ProductCardBasket({ product }: IProductCardProps) {
             <p className={s.sum}>
               you will pay <span>{product.sum || 1} $</span>
             </p>
-            <ItemCounter productItem={product}/>
+            <ItemCounter productItem={product} ratingCount={product.rating.count}/>
           </div>
         </div>
     </NavLink>

@@ -7,7 +7,8 @@ const path = "https://api.github.com/repos/dashaBobrovad/React-crush";
 
 // TODO: если понадобится повторно, вынести в отдельную функцию
 const fetchProducts = () => async (dispatch: Dispatch<ProductsAction>) => {
-  await fetch (`${path}/contents/public/db/data.json`)
+  // await fetch (`${path}/contents/public/db/data.json`)
+  await fetch (`${path}/contents/public/db/data.jвson`)
     .then (d => d.json ())
     .then (d => fetch (`${path}/git/blobs/${d.sha}`))
     .then (d => d.json())

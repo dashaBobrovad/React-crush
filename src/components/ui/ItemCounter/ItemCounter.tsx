@@ -9,12 +9,14 @@ import {
 
 interface ItemCounterProps {
     productItem: IProduct;
+    ratingCount: number;
 }
 
-function ItemCounter({ productItem }: ItemCounterProps) {
+function ItemCounter({ productItem, ratingCount }: ItemCounterProps) {
     const dispatch = useTypedDispatch();
 
     const [isRemoveDisabled, setIsRemoveDisabled] = React.useState(true);
+    const [isAddDisabled, setIsAddDisabled] = React.useState(true);
 
     const addProductToBasket = (
         e: React.MouseEvent<Element, MouseEvent>,
@@ -23,7 +25,7 @@ function ItemCounter({ productItem }: ItemCounterProps) {
         // TODO: link?
         e.preventDefault();
 
-        if (productItem.qty === productItem.rating.count) {
+        if (productItem.rating.count === 0) {
             return;
         }
 
@@ -51,11 +53,19 @@ function ItemCounter({ productItem }: ItemCounterProps) {
         }
       }, [productItem.qty]);
 
+      React.useEffect(() => {
+        if (ratingCount === 0) {
+            setIsAddDisabled(true);
+        } else {
+            setIsAddDisabled(false);
+        }
+      }, [ratingCount]);
+
       
     return <div className={s.counter}>
         <button
             type="button"
-            className={`${s.remove} ${isRemoveDisabled ? "disabled" : ""}`}
+            className={`${s.btn} ${isRemoveDisabled ? "disabled" : ""}`}
             onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
                 decreaseProductQtyFromBasket(e, productItem)
             }
@@ -65,7 +75,7 @@ function ItemCounter({ productItem }: ItemCounterProps) {
         <span>{productItem.qty || 1}</span>
         <button
             type="button"
-            className={s.remove}
+            className={`${s.btn} ${isAddDisabled ? "disabled" : ""}`}
             onClick={(e: React.MouseEvent<Element, MouseEvent>) =>
                 addProductToBasket(e, productItem)
             }
