@@ -12,10 +12,11 @@ function ProductsPage() {
 
   useEffect(() => {
     // TODO: + проверка с отключенным LS; нужно ли здесь это из локального достается итак (?)
+    // error on reducer
     if (localStorage?.getItem("persistantState")) {
       dispatch(
         getProductsAction(
-          JSON.parse(localStorage?.getItem("persistantState") as string).products.products
+          JSON.parse(localStorage?.getItem("persistantState") as string).products.products.list
         )
         
       );
