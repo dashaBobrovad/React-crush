@@ -6,7 +6,7 @@ import { IProduct } from "../types/IProduct";
 function ProductPage() {
   const { id } = useParams();
 
-  const products = useTypedSelector((state) => state.products.products);
+  const products = useTypedSelector((state) => state.products.products.list);
 
   const productEl =
     products && products.find((el: IProduct) => el.id === Number(id));

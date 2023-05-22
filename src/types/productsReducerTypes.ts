@@ -8,11 +8,14 @@ export enum ProductsActionTypes {
 }
 
 export interface IProductsState {
-  products: IProduct[];
+  products: {
+    list: IProduct[],
+    isLoaded: boolean,
+  };
   basket: {
     list: IProduct[],
     totalPrice: number,
-    totalCount: number
+    totalCount: number,
   };
 }
 

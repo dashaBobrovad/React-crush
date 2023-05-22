@@ -5,11 +5,10 @@ import { IProduct } from "../../../types/IProduct";
 import ProductCardSkeleton from "../ProductCardSkeleton/ProductCardSkeleton";
 
 interface ProductProps {
-  products: IProduct[];
-  isLoaded:boolean;
+products: {list:IProduct[], isLoaded:boolean}
 }
 
-function ProductList({ products, isLoaded }: ProductProps) {
+function ProductList({ products }: ProductProps) {
  
   const plugArray = Array(10).fill(true);
 
@@ -19,9 +18,9 @@ function ProductList({ products, isLoaded }: ProductProps) {
  
 
       {
-        isLoaded ? (  
-          products.map((product, index) => (
-            <ProductCard product={products[index]} key={product.id} />
+        products.isLoaded ? (  
+          products.list.map((product, index) => (
+            <ProductCard product={products.list[index]} key={product.id} />
           ))) : (
             // TODO: add сервис для создания айдишников
             // eslint-disable-next-line react/no-array-index-key
