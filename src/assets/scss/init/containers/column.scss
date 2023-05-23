@@ -5,6 +5,7 @@
   margin: 0 auto;
   padding: $padding-m;
   max-width: 1024px;
+  box-sizing: border-box;
 }
 
 @media (max-width: $media-mobile){
