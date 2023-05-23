@@ -7,10 +7,49 @@ $avatar-offset: 52 + 16;
 
 .product {
     border-radius: $radius-m;
-    background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
     background-size: 600px;
+    // height: 30px;
+    padding: $padding-m;
+    border: 1px solid $base-color;
+}
+
+.item {
+    background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
     animation: shine-avatar $animation-duration infinite linear;
-    height: 330px;
+}
+
+.avatar {
+    width: 100px;
+    height: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: $paragraphMb-l;
+}
+
+.title {
+    height: 63px;
+    margin-bottom: $paragraphMb-m;
+}
+
+.price {
+    height: 21px;
+    margin-bottom: $paragraphMb-s;
+}
+
+.category {
+    height: 21px;
+    margin-bottom: $paragraphMb-l;
+}
+
+.pieces {
+    height: 16px;
+    margin-bottom: $margin-xs;
+}
+
+.btn {
+    border-radius: 8px;
+    width: 100px;
+    height: 31px;
 }
 
 // .container {

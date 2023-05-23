@@ -10,7 +10,7 @@ products: {list:IProduct[], isLoaded:boolean}
 
 function ProductList({ products }: ProductProps) {
  
-  const plugArray = Array(10).fill(true);
+  const plugArray = Array(6).fill(true);
 
 
   return (
@@ -22,9 +22,7 @@ function ProductList({ products }: ProductProps) {
           products.list.map((product, index) => (
             <ProductCard product={products.list[index]} key={product.id} />
           ))) : (
-            // TODO: add сервис для создания айдишников
-            // eslint-disable-next-line react/no-array-index-key
-            plugArray.map((item, index) => <ProductCardSkeleton key={index}/>)
+            plugArray.map(() => <ProductCardSkeleton key={new Date().getTime()}/>)
           )
       }
     
