@@ -28,9 +28,7 @@ function ProductsPage() {
 
   return (
     <>
-      {
-        false && <Preview />
-      }
+      <Preview />
 
       <div className="column">
         <ProductList products={reduxProducts} />

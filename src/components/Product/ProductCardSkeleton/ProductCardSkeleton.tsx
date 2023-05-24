@@ -5,9 +5,12 @@ function ProductCardSkeleton() {
 
   return (
     <div className={s.product}>
-      <div className={s.avatar} />
-      <div className={s.line} />
-      <div className={s.line} />
+      <div className={`${s.item} ${s.avatar}`} />
+      <div className={`${s.item} ${s.title}`} />
+      <div className={`${s.item} ${s.price}`} />
+      <div className={`${s.item} ${s.category}`} />
+      <div className={`${s.item} ${s.pieces}`} />
+      <div className={`${s.item} ${s.btn}`} />
     </div>
   );
 }
