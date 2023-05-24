@@ -15,7 +15,6 @@ interface IProductCardProps {
 // const ChildComponent = React.memo(function ChildComponent({ count }) {
 // const Product = ({ product }: ProductProps) => {
 function ProductCard({ product }: IProductCardProps) {
-  // const rating  = product.rating.rate.toFixed(1); 
 
   const productInBasket = useTypedSelector((state) => state.products.basket.list.find(item => item.id === product.id), shallowEqual);
 
