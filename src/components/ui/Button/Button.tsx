@@ -3,7 +3,7 @@ import React, { ReactNode } from "react";
 
 interface ButtonProps {
   children: undefined | ReactNode;
-  className: null | string;
+  className?: null | string;
   [x: string]: any;
 }
 
@@ -14,5 +14,9 @@ function Button({ children, className = "", ...rest }: ButtonProps) {
     </button>
   );
 }
+
+Button.defaultProps = {
+  className: "",
+};
 
 export default Button;
