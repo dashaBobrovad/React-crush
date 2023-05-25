@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import useIntersection from "../../../data/hooks/useIntersection";
 import Preloader from "../Preloader/Preloader";
 // import s from "./Picture.module.scss";
@@ -13,7 +13,7 @@ function Picture({ src, parentClass, alt }: IPicture) {
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
-  const imgRef = React.useRef<any>();
+  const imgRef = useRef<any>();
 
   useIntersection(imgRef, () => {
     setIsInView(true);

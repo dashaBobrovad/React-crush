@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { IProduct } from "../../../types/IProduct";
 import s from "./ItemCounter.module.scss";
 import useTypedDispatch from "../../../data/hooks/useTypedDispatch";
@@ -15,8 +15,8 @@ interface ItemCounterProps {
 function ItemCounter({ productItem, ratingCount }: ItemCounterProps) {
     const dispatch = useTypedDispatch();
 
-    const [isRemoveDisabled, setIsRemoveDisabled] = React.useState(true);
-    const [isAddDisabled, setIsAddDisabled] = React.useState(true);
+    const [isRemoveDisabled, setIsRemoveDisabled] = useState(true);
+    const [isAddDisabled, setIsAddDisabled] = useState(true);
 
     const addProductToBasket = (
         e: React.MouseEvent<Element, MouseEvent>,
@@ -45,7 +45,7 @@ function ItemCounter({ productItem, ratingCount }: ItemCounterProps) {
         dispatch(decreaseProductQtyFromBasketAction(productItem));
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (productItem.qty === 1 || productItem.qty === undefined) {
           setIsRemoveDisabled(true);
         } else {
@@ -53,7 +53,7 @@ function ItemCounter({ productItem, ratingCount }: ItemCounterProps) {
         }
       }, [productItem.qty]);
 
-      React.useEffect(() => {
+      useEffect(() => {
         if (ratingCount === 0) {
             setIsAddDisabled(true);
         } else {

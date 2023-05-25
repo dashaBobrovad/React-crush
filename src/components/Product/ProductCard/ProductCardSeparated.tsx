@@ -1,13 +1,10 @@
 import { IProduct } from "../../../types/IProduct";
-import { /* Icon, */ Button, Picture } from "../../index";
+import { Button, Picture } from "../../index";
 import s from "./ProductCardSeparated.module.scss";
 
 interface IProductCardSeparatedProps {
   product: IProduct;
 }
-
-// const ChildComponent = React.memo(function ChildComponent({ count }) {
-// const Product = ({ product }: ProductProps) => {
 
 function ProductCardSeparated({ product }: IProductCardSeparatedProps) {
   

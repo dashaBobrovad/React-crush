@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import { ProductCard } from "../..";
 import s from "./ProductList.module.scss";
 import { IProduct } from "../../../types/IProduct";
@@ -30,4 +30,4 @@ function ProductList({ products }: ProductProps) {
   );
 }
 
-export default React.memo(ProductList);
+export default memo(ProductList);
