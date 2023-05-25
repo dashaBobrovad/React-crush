@@ -1,28 +1,28 @@
-@import '../../../assets/scss/init/vars';
+@import "../../../assets/scss/init/vars";
 
-.counter{
-    background-color: $grey-light;
-    border-radius: $radius-m;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 100px;
-    height: 32px;
-    padding: $paragraphMb-s;
-    box-sizing: border-box;
-    
-    &>*{
-      background-color: inherit;
-    }
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 100px;
+  height: 32px;
+  padding: $paragraphMb-s;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: $grey-light;
+  border-radius: $radius-m;
 
-    button{
-      flex-grow: 1;
-      font-size: 20px;
-    }
+  & > * {
+    background-color: inherit;
+  }
+
+  button {
+    flex-grow: 1;
+    font-size: 20px;
+  }
 }
 
-.btn{
-  color: $grey;
+.btn {
   font-size: $fontSize-s;
+  color: $grey;
 }

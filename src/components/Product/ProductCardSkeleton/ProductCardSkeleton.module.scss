@@ -1,4 +1,5 @@
 @import "../../../assets/scss/init/vars";
+// TODO: если понадобится где-то еще, вынестив base
 
 $base-color: #ddd;
 $shine-color: #e8e8e8;
@@ -6,115 +7,63 @@ $animation-duration: 1.6s;
 $avatar-offset: 52 + 16;
 
 .product {
-    border-radius: $radius-m;
-    background-size: 600px;
-    // height: 30px;
-    padding: $padding-m;
-    border: 1px solid $base-color;
+  padding: $padding-m;
+  border: 1px solid $base-color;
+  border-radius: $radius-m;
+  background-size: 600px;
 }
 
 .item {
-    background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
-    animation: shine-avatar $animation-duration infinite linear;
+  background-image: linear-gradient(
+    90deg,
+    $base-color 0px,
+    $shine-color 40px,
+    $base-color 80px
+  );
+  animation: shine-avatar $animation-duration infinite linear;
 }
 
 .avatar {
-    width: 100px;
-    height: 60px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: $paragraphMb-l;
+  width: 100px;
+  height: 60px;
+  margin-right: auto;
+  margin-bottom: $paragraphMb-l;
+  margin-left: auto;
 }
 
 .title {
-    height: 63px;
-    margin-bottom: $paragraphMb-m;
+  height: 63px;
+  margin-bottom: $paragraphMb-m;
 }
 
 .price {
-    height: 21px;
-    margin-bottom: $paragraphMb-s;
+  height: 21px;
+  margin-bottom: $paragraphMb-s;
 }
 
 .category {
-    height: 21px;
-    margin-bottom: $paragraphMb-l;
+  height: 21px;
+  margin-bottom: $paragraphMb-l;
 }
 
 .pieces {
-    height: 16px;
-    margin-bottom: $margin-xs;
+  height: 16px;
+  margin-bottom: $margin-xs;
 }
 
 .btn {
-    border-radius: 8px;
-    width: 100px;
-    height: 31px;
+  width: 100px;
+  height: 31px;
+  border-radius: 8px;
 }
 
-// .container {
-//     height: 100vh;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-// }
-
-// .post {
-//     width: 220px;
-//     height: 80px;
-
-//     .avatar {
-//         float: left;
-//         width: 52px;
-//         height: 52px;
-//         background-color: #ccc;
-//         border-radius: 25%;
-//         margin: 8px;
-
-//         background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
-//         background-size: 600px;
-//         animation: shine-avatar $animation-duration infinite linear;
-
-//     }
-//     .line {
-//         float: left;
-//         width: 140px;
-//         height: 16px;
-//         margin-top: 12px;
-//         border-radius: 7px;
-
-//         background-image: linear-gradient(90deg, $base-color 0px, $shine-color 40px, $base-color 80px);
-//         background-size: 600px;
-//             animation: shine-lines $animation-duration infinite linear;
-
-//     }
-
-//     .avatar + .line {
-//         margin-top: 11px;
-//         width: 100px;
-//     }
-//     .line ~ .line {
-//         background-color: #ddd;
-//     }
-// }
-// @keyframes shine-lines {
-//     0% {
-//         background-position: -100px;
-//     }
-
-//     40%,
-//     100% {
-//         background-position: 140px;
-//     }
-// }
 @keyframes shine-avatar {
-    0% {
-        background-position: -100px + $avatar-offset;
-    }
+  0% {
+    background-position: -100px + $avatar-offset;
+  }
 
-    40%,
-    100% {
-        background-position: 140px + $avatar-offset;
-    }
+  40%,
+  100% {
+    background-position: 140px + $avatar-offset;
+  }
 }
