@@ -10,22 +10,21 @@ products: {list:IProduct[], isLoaded:boolean}
 
 function ProductList({ products }: ProductProps) {
  
-  const plugArray = Array(6).fill(true);
+  const plugArray = Array(6).fill(null);
 
 
   return (
     <div className={s.productList}>
- 
 
       {
         products.isLoaded ? (  
           products.list.map((product, index) => (
             <ProductCard product={products.list[index]} key={product.id} />
           ))) : (
-            plugArray.map(() => <ProductCardSkeleton key={new Date().getTime()}/>)
+            plugArray.map(() => <ProductCardSkeleton />)
           )
       }
-    
+
     </div>
   );
 }
