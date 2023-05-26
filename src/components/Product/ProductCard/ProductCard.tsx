@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import { NavLink } from "react-router-dom";
 import { shallowEqual } from "react-redux";
 import { IProduct } from "../../../types/IProduct";
@@ -11,15 +11,9 @@ import useTypedSelector from "../../../data/hooks/useTypedSelector";
 interface IProductCardProps {
   product: IProduct;
 }
-
-// const ChildComponent = React.memo(function ChildComponent({ count }) {
-// const Product = ({ product }: ProductProps) => {
 function ProductCard({ product }: IProductCardProps) {
-
   const productInBasket = useTypedSelector((state) => state.products.basket.list.find(item => item.id === product.id), shallowEqual);
-
   
-
   const dispatch = useTypedDispatch();
 
   const price = product.price.toFixed(2);
@@ -55,4 +49,4 @@ function ProductCard({ product }: IProductCardProps) {
   );
 }
 
-export default React.memo(ProductCard);
+export default memo(ProductCard);

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import useIntersection from "../../../data/hooks/useIntersection";
 import Preloader from "../Preloader/Preloader";
-// import s from "./Picture.module.scss";
+import s from "./Picture.module.scss";
 
 interface IPicture {
   src: string;
@@ -13,7 +13,7 @@ function Picture({ src, parentClass, alt }: IPicture) {
   const [isInView, setIsInView] = useState(false);
   const [isLoaded, setLoaded] = useState(false);
 
-  const imgRef = React.useRef<any>();
+  const imgRef = useRef<any>();
 
   useIntersection(imgRef, () => {
     setIsInView(true);
@@ -25,14 +25,16 @@ function Picture({ src, parentClass, alt }: IPicture) {
 
   return (
     <div
-      className={`${parentClass} picture picture-${
-        isLoaded ? "noPlaceholder" : ""
+      className={`${parentClass} ${
+        isLoaded 
+          ? `${s.picture} ${s.picture_noPlaceholder}`
+          : s.picture
       }`}
       ref={imgRef}
     >
       {!isLoaded && <Preloader />}
       {isInView && (
-        <img className="picture_image" src={src} onLoad={onLoad} alt={alt} />
+        <img className={s.picture__image} src={src} onLoad={onLoad} alt={alt} />
       )}
     </div>
   );

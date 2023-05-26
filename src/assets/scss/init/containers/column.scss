@@ -2,10 +2,10 @@
 
 // сейчас неправильно работает из-за tailwig
 .column{
-  margin: 0 auto;
-  padding: $padding-m;
   max-width: 1024px;
   box-sizing: border-box;
+  margin: 0 auto;
+  padding: $padding-m;
 }
 
 @media (max-width: $media-mobile){

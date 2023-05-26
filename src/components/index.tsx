@@ -12,11 +12,13 @@ import Sprite from "./ui/Sprite";
 import Routing from "./ui/Routing";
 import ItemCounter from "./ui/ItemCounter/ItemCounter";
 import BasketCounter from "./ui/BasketCounter/BasketCounter";
+import Popup from "./ui/Popup/Popup";
+import Footer from "./ui/Footer/Footer";
 
 // Product
 import ProductCard from "./Product/ProductCard/ProductCard";
 import ProductList from "./Product/ProductList/ProductList";
-import ProductCardSeparated from "./Product/ProductCard/ProductCardSeparated";
+import ProductCardSeparated from "./Product/ProductCardSeparated/ProductCardSeparated";
 import ProductCardBasket from "./Product/ProductCard/productCardBasket";
 
 
@@ -34,6 +36,8 @@ export {
   BasketCounter,
   Sprite,
   Routing,
+  Popup,
+  Footer,
   // Product
   ProductCard,
   ProductList,

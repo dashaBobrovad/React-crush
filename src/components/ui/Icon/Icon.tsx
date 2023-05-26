@@ -8,7 +8,7 @@ interface IIconProps {
 
 function Icon({ classNames, icon, color }: IIconProps) {
   return (
-    <svg className={`${s.icon} ${s[`icon-${icon}`]} ${s[`icon-${color}`]} ${classNames}`} role="img">
+    <svg className={`${s.icon} ${s[`icon_${icon}`]} ${s[`icon_${color}`]} ${classNames}`} role="img">
       <use xlinkHref={`#${icon}`} />
     </svg>
   );

@@ -1,21 +1,21 @@
-@import '../../../assets/scss/init/vars';
+@import "../../../assets/scss/init/vars";
 
 .navigation {
-    display: flex;
+  display: flex;
 }
 
 .item {
-    color: $white;
+  color: $white;
 
-    &:not(:last-child) {
-        margin-right: 10px;
-    }
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
 
-    &:hover {
-        color: $yellow;
-    }
+  &:hover {
+    color: $yellow;
+  }
 }
 
 .active {
-    color: $blue-light;
+  color: $blue-light;
 }

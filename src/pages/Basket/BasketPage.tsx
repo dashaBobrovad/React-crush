@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect, memo} from "react";
 import { shallowEqual } from "react-redux";
 import { ProductCardBasket } from "../../components";
 import useTypedSelector from "../../data/hooks/useTypedSelector";
@@ -12,9 +12,9 @@ function BasketPage() {
     shallowEqual
   );
 
-  const [isEmpty, setIsEmpty] = React.useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsEmpty(basket.list.length <= 0);
   }, [basket.list]);
 
@@ -44,4 +44,4 @@ function BasketPage() {
   );
 }
 
-export default React.memo(BasketPage);
+export default memo(BasketPage);
